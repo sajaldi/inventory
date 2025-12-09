@@ -1,0 +1,929 @@
+› Building app...
+Configuration on demand is an incubating feature.
+> Task :gradle-plugin:settings-plugin:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :gradle-plugin:shared:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :expo-gradle-plugin:expo-autolinking-plugin-shared:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :expo-gradle-plugin:expo-autolinking-settings-plugin:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :gradle-plugin:settings-plugin:pluginDescriptors UP-TO-DATE
+> Task :expo-gradle-plugin:expo-autolinking-settings-plugin:pluginDescriptors UP-TO-DATE
+> Task :expo-gradle-plugin:expo-autolinking-settings-plugin:processResources UP-TO-DATE
+> Task :gradle-plugin:settings-plugin:processResources UP-TO-DATE
+> Task :gradle-plugin:shared:compileKotlin UP-TO-DATE
+> Task :gradle-plugin:shared:compileJava NO-SOURCE
+> Task :expo-gradle-plugin:expo-autolinking-plugin-shared:compileKotlin UP-TO-DATE
+> Task :gradle-plugin:shared:processResources NO-SOURCE
+> Task :gradle-plugin:shared:classes UP-TO-DATE
+> Task :expo-gradle-plugin:expo-autolinking-plugin-shared:compileJava NO-SOURCE
+> Task :expo-gradle-plugin:expo-autolinking-plugin-shared:processResources NO-SOURCE
+> Task :expo-gradle-plugin:expo-autolinking-plugin-shared:classes UP-TO-DATE
+> Task :gradle-plugin:shared:jar UP-TO-DATE
+> Task :expo-gradle-plugin:expo-autolinking-plugin-shared:jar UP-TO-DATE
+> Task :gradle-plugin:settings-plugin:compileKotlin UP-TO-DATE
+> Task :gradle-plugin:settings-plugin:compileJava NO-SOURCE
+> Task :gradle-plugin:settings-plugin:classes UP-TO-DATE
+> Task :gradle-plugin:settings-plugin:jar UP-TO-DATE
+> Task :expo-gradle-plugin:expo-autolinking-settings-plugin:compileKotlin UP-TO-DATE
+> Task :expo-gradle-plugin:expo-autolinking-settings-plugin:compileJava NO-SOURCE
+> Task :expo-gradle-plugin:expo-autolinking-settings-plugin:classes UP-TO-DATE
+> Task :expo-gradle-plugin:expo-autolinking-settings-plugin:jar UP-TO-DATE
+> Task :expo-gradle-plugin:expo-autolinking-plugin:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :gradle-plugin:react-native-gradle-plugin:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :expo-dev-launcher-gradle-plugin:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :expo-dev-launcher-gradle-plugin:pluginDescriptors UP-TO-DATE
+> Task :expo-module-gradle-plugin:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :expo-module-gradle-plugin:pluginDescriptors UP-TO-DATE
+> Task :expo-module-gradle-plugin:processResources UP-TO-DATE
+> Task :expo-dev-launcher-gradle-plugin:processResources UP-TO-DATE
+> Task :expo-gradle-plugin:expo-autolinking-plugin:compileKotlin UP-TO-DATE
+> Task :expo-gradle-plugin:expo-autolinking-plugin:compileJava NO-SOURCE
+> Task :expo-gradle-plugin:expo-autolinking-plugin:pluginDescriptors UP-TO-DATE
+> Task :expo-gradle-plugin:expo-autolinking-plugin:processResources UP-TO-DATE
+> Task :expo-gradle-plugin:expo-autolinking-plugin:classes UP-TO-DATE
+> Task :expo-gradle-plugin:expo-autolinking-plugin:jar UP-TO-DATE
+> Task :gradle-plugin:react-native-gradle-plugin:compileKotlin UP-TO-DATE
+> Task :gradle-plugin:react-native-gradle-plugin:compileJava NO-SOURCE
+> Task :gradle-plugin:react-native-gradle-plugin:pluginDescriptors UP-TO-DATE
+> Task :gradle-plugin:react-native-gradle-plugin:processResources UP-TO-DATE
+> Task :gradle-plugin:react-native-gradle-plugin:classes UP-TO-DATE
+> Task :gradle-plugin:react-native-gradle-plugin:jar UP-TO-DATE
+> Task :expo-dev-launcher-gradle-plugin:compileKotlin UP-TO-DATE
+> Task :expo-module-gradle-plugin:compileKotlin UP-TO-DATE
+> Task :expo-dev-launcher-gradle-plugin:compileJava NO-SOURCE
+> Task :expo-module-gradle-plugin:compileJava NO-SOURCE
+> Task :expo-dev-launcher-gradle-plugin:classes UP-TO-DATE
+> Task :expo-module-gradle-plugin:classes UP-TO-DATE
+> Task :expo-dev-launcher-gradle-plugin:jar UP-TO-DATE
+> Task :expo-module-gradle-plugin:jar UP-TO-DATE
+
+> Configure project :app
+ ??  [33mApplying gradle plugin[0m '[32mexpo-dev-launcher-gradle-plugin[0m'
+
+> Configure project :
+[32m[ExpoRootProject][0m Using the following versions:
+  - buildTools:  [32m36.0.0[0m
+  - minSdk:      [32m24[0m
+  - compileSdk:  [32m36[0m
+  - targetSdk:   [32m36[0m
+  - ndk:         [32m26.3.11579264[0m
+  - kotlin:      [32m2.1.20[0m
+  - ksp:         [32m2.1.20-2.0.1[0m
+
+> Configure project :expo
+
+Using expo modules
+  - [32mexpo-barcode-scanner[0m (13.0.1)
+  - [32mexpo-constants[0m (18.0.10)
+  - [32mexpo-dev-client[0m (6.0.20)
+  - [32mexpo-dev-launcher[0m (6.0.20)
+  - [32mexpo-dev-menu[0m (7.0.18)
+  - [32mexpo-dev-menu-interface[0m (2.0.0)
+  - [32mexpo-image-loader[0m (4.7.0)
+  - [32mexpo-json-utils[0m (0.15.0)
+  - [32mexpo-manifests[0m (1.0.10)
+  - [32mexpo-modules-core[0m (3.0.26)
+  - [32mexpo-updates-interface[0m (2.0.0)
+  - [33m[?][0m [32mexpo-asset[0m (12.0.10)
+  - [33m[?][0m [32mexpo-av[0m (16.0.8)
+  - [33m[?][0m [32mexpo-camera[0m (17.0.9)
+  - [33m[?][0m [32mexpo-document-picker[0m (14.0.7)
+  - [33m[?][0m [32mexpo-file-system[0m (19.0.19)
+  - [33m[?][0m [32mexpo-font[0m (14.0.9)
+  - [33m[?][0m [32mexpo-haptics[0m (15.0.7)
+  - [33m[?][0m [32mexpo-image[0m (3.0.10)
+  - [33m[?][0m [32mexpo-image-picker[0m (17.0.9)
+  - [33m[?][0m [32mexpo-keep-awake[0m (15.0.7)
+  - [33m[?][0m [32mexpo-linking[0m (8.0.9)
+  - [33m[?][0m [32mexpo-sharing[0m (14.0.7)
+  - [33m[?][0m [32mexpo-splash-screen[0m (31.0.11)
+  - [33m[?][0m [32mexpo-sqlite[0m (16.0.9)
+  - [33m[?][0m [32mexpo-system-ui[0m (6.0.8)
+  - [33m[?][0m [32mexpo-web-browser[0m (15.0.9)
+
+
+> Task :expo-updates-interface:preBuild UP-TO-DATE
+> Task :expo-barcode-scanner:preBuild UP-TO-DATE
+> Task :expo-modules-core:preBuild UP-TO-DATE
+> Task :expo-manifests:preBuild UP-TO-DATE
+> Task :expo-json-utils:preBuild UP-TO-DATE
+> Task :expo-dev-menu-interface:preBuild UP-TO-DATE
+> Task :expo-image-loader:preBuild UP-TO-DATE
+> Task :expo-dev-menu:preBuild UP-TO-DATE
+> Task :expo-dev-client:preBuild UP-TO-DATE
+> Task :expo-dev-launcher:preBuild UP-TO-DATE
+> Task :expo-dev-launcher:preDebugBuild UP-TO-DATE
+> Task :react-native-async-storage_async-storage:generateCodegenSchemaFromJavaScript UP-TO-DATE
+> Task :expo-image-loader:preDebugBuild UP-TO-DATE
+> Task :expo-json-utils:preDebugBuild UP-TO-DATE
+> Task :expo-modules-core:preDebugBuild UP-TO-DATE
+> Task :expo:generatePackagesList UP-TO-DATE
+> Task :expo-barcode-scanner:preDebugBuild UP-TO-DATE
+> Task :expo-manifests:preDebugBuild UP-TO-DATE
+> Task :expo-dev-menu-interface:preDebugBuild UP-TO-DATE
+> Task :expo-dev-client:preDebugBuild UP-TO-DATE
+> Task :expo-dev-menu:preDebugBuild UP-TO-DATE
+> Task :react-native-gesture-handler:generateCodegenSchemaFromJavaScript UP-TO-DATE
+> Task :react-native-blob-util:generateCodegenSchemaFromJavaScript UP-TO-DATE
+> Task :expo-dev-launcher:writeDebugAarMetadata UP-TO-DATE
+> Task :expo-json-utils:writeDebugAarMetadata UP-TO-DATE
+> Task :expo-image-loader:writeDebugAarMetadata UP-TO-DATE
+> Task :expo-modules-core:writeDebugAarMetadata UP-TO-DATE
+> Task :expo-updates-interface:preDebugBuild UP-TO-DATE
+> Task :expo-manifests:writeDebugAarMetadata UP-TO-DATE
+> Task :react-native-pdf:generateCodegenSchemaFromJavaScript UP-TO-DATE
+> Task :react-native-safe-area-context:generateCodegenSchemaFromJavaScript UP-TO-DATE
+> Task :expo-dev-menu-interface:writeDebugAarMetadata UP-TO-DATE
+> Task :expo-dev-menu:writeDebugAarMetadata UP-TO-DATE
+> Task :expo-dev-client:writeDebugAarMetadata UP-TO-DATE
+> Task :expo:preBuild UP-TO-DATE
+> Task :expo-dev-menu-interface:generateDebugResValues UP-TO-DATE
+> Task :expo-updates-interface:writeDebugAarMetadata UP-TO-DATE
+> Task :expo:preDebugBuild UP-TO-DATE
+> Task :expo-dev-launcher:generateDebugResValues UP-TO-DATE
+> Task :expo-image-loader:generateDebugResValues UP-TO-DATE
+> Task :expo-barcode-scanner:writeDebugAarMetadata UP-TO-DATE
+> Task :expo:writeDebugAarMetadata UP-TO-DATE
+> Task :expo:generateDebugResValues UP-TO-DATE
+> Task :react-native-screens:generateCodegenSchemaFromJavaScript UP-TO-DATE
+> Task :expo-dev-menu-interface:generateDebugResources UP-TO-DATE
+> Task :expo-image-loader:generateDebugResources UP-TO-DATE
+> Task :expo-dev-launcher:generateDebugResources UP-TO-DATE
+> Task :expo-dev-client:generateDebugResValues UP-TO-DATE
+> Task :expo-dev-client:generateDebugResources UP-TO-DATE
+> Task :expo-manifests:generateDebugResValues UP-TO-DATE
+> Task :expo:generateDebugResources UP-TO-DATE
+> Task :expo-json-utils:generateDebugResValues UP-TO-DATE
+> Task :expo-image-loader:packageDebugResources UP-TO-DATE
+> Task :expo-barcode-scanner:generateDebugResValues UP-TO-DATE
+> Task :expo-modules-core:generateDebugResValues UP-TO-DATE
+> Task :expo-dev-menu-interface:packageDebugResources UP-TO-DATE
+> Task :expo-barcode-scanner:generateDebugResources UP-TO-DATE
+> Task :react-native-async-storage_async-storage:generateCodegenArtifactsFromSchema UP-TO-DATE
+> Task :expo-dev-menu:generateDebugResValues UP-TO-DATE
+> Task :react-native-gesture-handler:generateCodegenArtifactsFromSchema UP-TO-DATE
+> Task :react-native-pdf:generateCodegenArtifactsFromSchema UP-TO-DATE
+> Task :react-native-pdf:preBuild UP-TO-DATE
+> Task :react-native-pdf:preDebugBuild UP-TO-DATE
+> Task :react-native-pdf:writeDebugAarMetadata UP-TO-DATE
+> Task :expo-updates-interface:generateDebugResValues UP-TO-DATE
+> Task :expo-dev-client:packageDebugResources UP-TO-DATE
+> Task :expo-json-utils:generateDebugResources UP-TO-DATE
+> Task :expo-manifests:generateDebugResources UP-TO-DATE
+> Task :expo-updates-interface:generateDebugResources UP-TO-DATE
+> Task :expo-dev-launcher:packageDebugResources UP-TO-DATE
+> Task :expo:packageDebugResources UP-TO-DATE
+> Task :react-native-screens:generateCodegenArtifactsFromSchema UP-TO-DATE
+> Task :expo-manifests:packageDebugResources UP-TO-DATE
+> Task :expo-dev-client:extractDeepLinksDebug UP-TO-DATE
+> Task :expo-dev-launcher:extractDeepLinksDebug UP-TO-DATE
+> Task :expo-updates-interface:packageDebugResources UP-TO-DATE
+> Task :react-native-pdf:generateDebugResValues UP-TO-DATE
+> Task :react-native-safe-area-context:generateCodegenArtifactsFromSchema UP-TO-DATE
+> Task :react-native-blob-util:generateCodegenArtifactsFromSchema UP-TO-DATE
+> Task :expo-modules-core:generateDebugResources UP-TO-DATE
+> Task :react-native-gesture-handler:preBuild UP-TO-DATE
+> Task :react-native-async-storage_async-storage:preBuild UP-TO-DATE
+> Task :react-native-async-storage_async-storage:preDebugBuild UP-TO-DATE
+> Task :expo-modules-core:packageDebugResources UP-TO-DATE
+> Task :react-native-gesture-handler:preDebugBuild UP-TO-DATE
+> Task :expo-json-utils:packageDebugResources UP-TO-DATE
+> Task :expo-barcode-scanner:packageDebugResources UP-TO-DATE
+> Task :react-native-gesture-handler:writeDebugAarMetadata UP-TO-DATE
+> Task :react-native-safe-area-context:preBuild UP-TO-DATE
+> Task :react-native-safe-area-context:preDebugBuild UP-TO-DATE
+> Task :expo-dev-menu:generateDebugResources UP-TO-DATE
+> Task :react-native-screens:preBuild UP-TO-DATE
+> Task :react-native-screens:preDebugBuild UP-TO-DATE
+> Task :react-native-pdf:generateDebugResources UP-TO-DATE
+> Task :react-native-screens:writeDebugAarMetadata UP-TO-DATE
+> Task :expo-dev-menu:packageDebugResources UP-TO-DATE
+> Task :react-native-screens:generateDebugResValues UP-TO-DATE
+> Task :react-native-blob-util:preBuild UP-TO-DATE
+> Task :expo-dev-client:processDebugManifest UP-TO-DATE
+> Task :expo-dev-menu-interface:extractDeepLinksDebug UP-TO-DATE
+> Task :expo:extractDeepLinksDebug UP-TO-DATE
+> Task :expo-image-loader:extractDeepLinksDebug UP-TO-DATE
+> Task :expo-manifests:extractDeepLinksDebug UP-TO-DATE
+> Task :react-native-async-storage_async-storage:writeDebugAarMetadata UP-TO-DATE
+> Task :expo-json-utils:extractDeepLinksDebug UP-TO-DATE
+> Task :expo-modules-core:extractDeepLinksDebug UP-TO-DATE
+> Task :expo-image-loader:processDebugManifest UP-TO-DATE
+> Task :expo:processDebugManifest UP-TO-DATE
+> Task :expo-json-utils:processDebugManifest UP-TO-DATE
+> Task :react-native-safe-area-context:writeDebugAarMetadata UP-TO-DATE
+> Task :react-native-screens:generateDebugResources UP-TO-DATE
+> Task :expo-dev-launcher:processDebugManifest UP-TO-DATE
+> Task :react-native-safe-area-context:generateDebugResValues UP-TO-DATE
+> Task :react-native-pdf:packageDebugResources UP-TO-DATE
+> Task :expo-dev-menu:extractDeepLinksDebug UP-TO-DATE
+> Task :react-native-blob-util:preDebugBuild UP-TO-DATE
+> Task :react-native-gesture-handler:generateDebugResValues UP-TO-DATE
+> Task :react-native-screens:packageDebugResources UP-TO-DATE
+> Task :expo-barcode-scanner:extractDeepLinksDebug UP-TO-DATE
+> Task :react-native-gesture-handler:generateDebugResources UP-TO-DATE
+> Task :react-native-screens:extractDeepLinksDebug UP-TO-DATE
+> Task :expo-dev-menu-interface:processDebugManifest UP-TO-DATE
+> Task :react-native-screens:processDebugManifest UP-TO-DATE
+> Task :expo-dev-client:compileDebugLibraryResources UP-TO-DATE
+> Task :expo-dev-menu-interface:compileDebugLibraryResources UP-TO-DATE
+> Task :expo-dev-launcher:compileDebugLibraryResources UP-TO-DATE
+> Task :expo:compileDebugLibraryResources UP-TO-DATE
+> Task :expo-modules-core:processDebugManifest UP-TO-DATE
+> Task :expo-updates-interface:extractDeepLinksDebug UP-TO-DATE
+> Task :expo-manifests:processDebugManifest UP-TO-DATE
+> Task :react-native-async-storage_async-storage:generateDebugResValues UP-TO-DATE
+> Task :expo-dev-client:parseDebugLocalResources UP-TO-DATE
+> Task :react-native-blob-util:writeDebugAarMetadata UP-TO-DATE
+> Task :expo-dev-client:generateDebugRFile UP-TO-DATE
+> Task :expo-json-utils:compileDebugLibraryResources UP-TO-DATE
+> Task :react-native-async-storage_async-storage:generateDebugResources UP-TO-DATE
+> Task :expo-barcode-scanner:processDebugManifest UP-TO-DATE
+> Task :expo-manifests:compileDebugLibraryResources UP-TO-DATE
+> Task :react-native-gesture-handler:packageDebugResources UP-TO-DATE
+> Task :expo-barcode-scanner:compileDebugLibraryResources UP-TO-DATE
+> Task :react-native-gesture-handler:extractDeepLinksDebug UP-TO-DATE
+> Task :expo-image-loader:compileDebugLibraryResources UP-TO-DATE
+> Task :react-native-async-storage_async-storage:packageDebugResources UP-TO-DATE
+> Task :expo-modules-core:compileDebugLibraryResources UP-TO-DATE
+> Task :react-native-blob-util:generateDebugResValues UP-TO-DATE
+> Task :expo-dev-menu-interface:parseDebugLocalResources UP-TO-DATE
+> Task :react-native-blob-util:generateDebugResources UP-TO-DATE
+> Task :expo-updates-interface:processDebugManifest UP-TO-DATE
+> Task :react-native-pdf:extractDeepLinksDebug UP-TO-DATE
+> Task :expo-dev-menu:processDebugManifest UP-TO-DATE
+> Task :expo:parseDebugLocalResources UP-TO-DATE
+> Task :expo-dev-launcher:parseDebugLocalResources UP-TO-DATE
+> Task :expo-manifests:parseDebugLocalResources UP-TO-DATE
+> Task :react-native-blob-util:packageDebugResources UP-TO-DATE
+> Task :expo-modules-core:parseDebugLocalResources UP-TO-DATE
+> Task :expo-dev-menu-interface:generateDebugRFile UP-TO-DATE
+> Task :react-native-safe-area-context:generateDebugResources UP-TO-DATE
+> Task :expo:generateDebugRFile UP-TO-DATE
+> Task :react-native-gesture-handler:processDebugManifest UP-TO-DATE
+> Task :expo-image-loader:parseDebugLocalResources UP-TO-DATE
+> Task :expo-json-utils:parseDebugLocalResources UP-TO-DATE
+> Task :expo-barcode-scanner:parseDebugLocalResources UP-TO-DATE
+> Task :react-native-safe-area-context:packageDebugResources UP-TO-DATE
+> Task :expo-json-utils:generateDebugRFile UP-TO-DATE
+> Task :react-native-async-storage_async-storage:extractDeepLinksDebug UP-TO-DATE
+> Task :expo-dev-menu:compileDebugLibraryResources UP-TO-DATE
+> Task :react-native-gesture-handler:compileDebugLibraryResources UP-TO-DATE
+> Task :react-native-pdf:processDebugManifest UP-TO-DATE
+> Task :expo-updates-interface:compileDebugLibraryResources UP-TO-DATE
+> Task :expo-dev-menu:parseDebugLocalResources UP-TO-DATE
+> Task :react-native-screens:compileDebugLibraryResources UP-TO-DATE
+> Task :expo-modules-core:generateDebugRFile UP-TO-DATE
+> Task :react-native-safe-area-context:extractDeepLinksDebug UP-TO-DATE
+> Task :expo-manifests:generateDebugRFile UP-TO-DATE
+> Task :react-native-blob-util:extractDeepLinksDebug UP-TO-DATE
+> Task :expo-dev-launcher:generateDebugRFile UP-TO-DATE
+> Task :react-native-blob-util:processDebugManifest UP-TO-DATE
+> Task :expo-barcode-scanner:generateDebugRFile UP-TO-DATE
+> Task :expo-dev-menu:generateDebugRFile UP-TO-DATE
+> Task :react-native-gesture-handler:parseDebugLocalResources UP-TO-DATE
+> Task :expo:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :expo-image-loader:generateDebugRFile UP-TO-DATE
+> Task :react-native-blob-util:compileDebugLibraryResources UP-TO-DATE
+> Task :expo-barcode-scanner:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :react-native-gesture-handler:generateDebugRFile UP-TO-DATE
+> Task :expo-modules-core:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :react-native-screens:parseDebugLocalResources UP-TO-DATE
+> Task :react-native-pdf:compileDebugLibraryResources UP-TO-DATE
+> Task :react-native-async-storage_async-storage:processDebugManifest UP-TO-DATE
+> Task :react-native-pdf:parseDebugLocalResources UP-TO-DATE
+> Task :expo-dev-launcher:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :expo-updates-interface:parseDebugLocalResources UP-TO-DATE
+> Task :expo-barcode-scanner:generateDebugBuildConfig UP-TO-DATE
+> Task :expo-json-utils:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :expo:generateDebugBuildConfig UP-TO-DATE
+> Task :expo-updates-interface:generateDebugRFile UP-TO-DATE
+> Task :expo-dev-menu:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :expo-barcode-scanner:javaPreCompileDebug UP-TO-DATE
+> Task :expo-manifests:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :react-native-blob-util:parseDebugLocalResources UP-TO-DATE
+> Task :expo-json-utils:generateDebugBuildConfig UP-TO-DATE
+> Task :expo-manifests:generateDebugBuildConfig UP-TO-DATE
+> Task :expo-dev-menu-interface:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :expo-manifests:javaPreCompileDebug UP-TO-DATE
+> Task :react-native-safe-area-context:processDebugManifest UP-TO-DATE
+> Task :react-native-async-storage_async-storage:compileDebugLibraryResources UP-TO-DATE
+> Task :expo-dev-client:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :react-native-screens:generateDebugRFile UP-TO-DATE
+> Task :expo-modules-core:generateDebugBuildConfig UP-TO-DATE
+> Task :react-native-pdf:generateDebugRFile UP-TO-DATE
+> Task :react-native-async-storage_async-storage:parseDebugLocalResources UP-TO-DATE
+> Task :expo-json-utils:javaPreCompileDebug UP-TO-DATE
+> Task :react-native-gesture-handler:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :react-native-blob-util:generateDebugRFile UP-TO-DATE
+> Task :react-native-gesture-handler:generateDebugBuildConfig UP-TO-DATE
+> Task :expo-updates-interface:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :expo:javaPreCompileDebug UP-TO-DATE
+> Task :react-native-pdf:generateDebugBuildConfig UP-TO-DATE
+> Task :react-native-gesture-handler:javaPreCompileDebug UP-TO-DATE
+> Task :react-native-blob-util:generateDebugBuildConfig UP-TO-DATE
+> Task :expo-dev-menu:generateDebugBuildConfig UP-TO-DATE
+> Task :react-native-blob-util:javaPreCompileDebug UP-TO-DATE
+> Task :expo-dev-menu:javaPreCompileDebug UP-TO-DATE
+> Task :expo-barcode-scanner:mergeDebugShaders UP-TO-DATE
+> Task :expo-dev-menu:mergeDebugShaders UP-TO-DATE
+> Task :expo-barcode-scanner:compileDebugShaders NO-SOURCE
+> Task :expo-dev-menu:compileDebugShaders NO-SOURCE
+> Task :expo-dev-menu-interface:generateDebugBuildConfig UP-TO-DATE
+> Task :react-native-safe-area-context:compileDebugLibraryResources UP-TO-DATE
+> Task :expo-dev-menu-interface:javaPreCompileDebug UP-TO-DATE
+> Task :expo-image-loader:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :expo-image-loader:generateDebugBuildConfig UP-TO-DATE
+> Task :react-native-safe-area-context:parseDebugLocalResources UP-TO-DATE
+> Task :expo-image-loader:javaPreCompileDebug UP-TO-DATE
+> Task :expo-dev-menu-interface:mergeDebugShaders UP-TO-DATE
+> Task :expo-image-loader:mergeDebugShaders UP-TO-DATE
+> Task :expo-dev-menu-interface:compileDebugShaders NO-SOURCE
+> Task :react-native-async-storage_async-storage:generateDebugRFile UP-TO-DATE
+> Task :expo:mergeDebugShaders UP-TO-DATE
+> Task :expo-barcode-scanner:generateDebugAssets UP-TO-DATE
+> Task :react-native-screens:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :expo-image-loader:compileDebugShaders NO-SOURCE
+> Task :expo-updates-interface:generateDebugBuildConfig UP-TO-DATE
+> Task :expo-image-loader:generateDebugAssets UP-TO-DATE
+> Task :react-native-screens:generateDebugBuildConfig UP-TO-DATE
+> Task :expo-updates-interface:javaPreCompileDebug UP-TO-DATE
+> Task :expo-json-utils:mergeDebugShaders UP-TO-DATE
+> Task :react-native-safe-area-context:generateDebugRFile UP-TO-DATE
+> Task :expo-dev-menu-interface:generateDebugAssets UP-TO-DATE
+> Task :expo-dev-menu:generateDebugAssets UP-TO-DATE
+> Task :expo:compileDebugShaders NO-SOURCE
+> Task :react-native-safe-area-context:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :react-native-async-storage_async-storage:generateDebugBuildConfig UP-TO-DATE
+> Task :expo-barcode-scanner:mergeDebugAssets UP-TO-DATE
+> Task :expo-image-loader:mergeDebugAssets UP-TO-DATE
+> Task :react-native-safe-area-context:generateDebugBuildConfig UP-TO-DATE
+> Task :react-native-async-storage_async-storage:javaPreCompileDebug UP-TO-DATE
+> Task :expo-dev-menu-interface:mergeDebugAssets UP-TO-DATE
+> Task :expo-dev-menu:mergeDebugAssets UP-TO-DATE
+> Task :expo-json-utils:compileDebugShaders NO-SOURCE
+> Task :expo:generateDebugAssets UP-TO-DATE
+> Task :expo-manifests:mergeDebugShaders UP-TO-DATE
+> Task :react-native-pdf:javaPreCompileDebug UP-TO-DATE
+> Task :expo-manifests:compileDebugShaders NO-SOURCE
+> Task :expo:mergeDebugAssets UP-TO-DATE
+> Task :expo-json-utils:generateDebugAssets UP-TO-DATE
+> Task :react-native-gesture-handler:mergeDebugShaders UP-TO-DATE
+> Task :react-native-gesture-handler:compileDebugShaders NO-SOURCE
+> Task :react-native-gesture-handler:generateDebugAssets UP-TO-DATE
+> Task :react-native-gesture-handler:mergeDebugAssets UP-TO-DATE
+> Task :expo:mergeDebugJniLibFolders UP-TO-DATE
+> Task :expo-json-utils:mergeDebugAssets UP-TO-DATE
+> Task :expo-manifests:generateDebugAssets UP-TO-DATE
+> Task :expo-manifests:mergeDebugAssets UP-TO-DATE
+> Task :expo-updates-interface:mergeDebugShaders UP-TO-DATE
+> Task :expo:mergeDebugNativeLibs NO-SOURCE
+> Task :expo-barcode-scanner:mergeDebugJniLibFolders UP-TO-DATE
+> Task :expo:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :expo-dev-menu:mergeDebugJniLibFolders UP-TO-DATE
+> Task :expo-updates-interface:compileDebugShaders NO-SOURCE
+> Task :expo-barcode-scanner:mergeDebugNativeLibs NO-SOURCE
+> Task :expo-updates-interface:generateDebugAssets UP-TO-DATE
+> Task :expo-updates-interface:mergeDebugAssets UP-TO-DATE
+> Task :expo-barcode-scanner:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :expo-dev-menu-interface:mergeDebugJniLibFolders UP-TO-DATE
+> Task :expo-dev-menu:mergeDebugNativeLibs NO-SOURCE
+> Task :expo-dev-menu:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :expo-image-loader:mergeDebugJniLibFolders UP-TO-DATE
+> Task :expo-image-loader:mergeDebugNativeLibs NO-SOURCE
+> Task :expo-image-loader:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :expo-json-utils:mergeDebugJniLibFolders UP-TO-DATE
+> Task :expo-json-utils:mergeDebugNativeLibs NO-SOURCE
+> Task :expo-json-utils:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :expo-dev-menu-interface:mergeDebugNativeLibs NO-SOURCE
+> Task :expo-dev-menu-interface:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :expo-manifests:mergeDebugJniLibFolders UP-TO-DATE
+> Task :expo-manifests:mergeDebugNativeLibs NO-SOURCE
+> Task :expo-manifests:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :react-native-gesture-handler:mergeDebugJniLibFolders UP-TO-DATE
+> Task :expo-dev-client:dataBindingMergeDependencyArtifactsDebug UP-TO-DATE
+> Task :expo-updates-interface:mergeDebugJniLibFolders UP-TO-DATE
+> Task :expo-updates-interface:mergeDebugNativeLibs NO-SOURCE
+> Task :expo-dev-client:dataBindingGenBaseClassesDebug UP-TO-DATE
+> Task :expo-updates-interface:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :react-native-async-storage_async-storage:compileDebugJavaWithJavac UP-TO-DATE
+> Task :react-native-pdf:compileDebugJavaWithJavac UP-TO-DATE
+> Task :react-native-blob-util:compileDebugJavaWithJavac UP-TO-DATE
+> Task :react-native-async-storage_async-storage:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :react-native-pdf:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :react-native-async-storage_async-storage:mergeDebugShaders UP-TO-DATE
+> Task :react-native-async-storage_async-storage:compileDebugShaders NO-SOURCE
+> Task :react-native-pdf:mergeDebugShaders UP-TO-DATE
+> Task :react-native-blob-util:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :react-native-async-storage_async-storage:generateDebugAssets UP-TO-DATE
+> Task :react-native-pdf:compileDebugShaders NO-SOURCE
+> Task :expo-dev-client:generateDebugBuildConfig UP-TO-DATE
+> Task :react-native-blob-util:mergeDebugShaders UP-TO-DATE
+> Task :react-native-async-storage_async-storage:mergeDebugAssets UP-TO-DATE
+> Task :react-native-pdf:generateDebugAssets UP-TO-DATE
+> Task :expo-dev-client:javaPreCompileDebug UP-TO-DATE
+> Task :expo-dev-launcher:dataBindingMergeDependencyArtifactsDebug UP-TO-DATE
+> Task :expo-dev-client:mergeDebugShaders UP-TO-DATE
+> Task :react-native-async-storage_async-storage:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :react-native-blob-util:compileDebugShaders NO-SOURCE
+> Task :react-native-blob-util:generateDebugAssets UP-TO-DATE
+> Task :react-native-pdf:mergeDebugAssets UP-TO-DATE
+> Task :react-native-async-storage_async-storage:processDebugJavaRes NO-SOURCE
+> Task :expo-dev-client:compileDebugShaders NO-SOURCE
+> Task :expo-dev-client:generateDebugAssets UP-TO-DATE
+> Task :react-native-blob-util:mergeDebugAssets UP-TO-DATE
+> Task :react-native-async-storage_async-storage:mergeDebugJniLibFolders UP-TO-DATE
+> Task :react-native-async-storage_async-storage:mergeDebugNativeLibs NO-SOURCE
+> Task :expo-dev-client:mergeDebugAssets UP-TO-DATE
+> Task :react-native-async-storage_async-storage:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :expo-dev-launcher:dataBindingGenBaseClassesDebug UP-TO-DATE
+> Task :react-native-blob-util:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :expo-dev-client:mergeDebugJniLibFolders UP-TO-DATE
+> Task :expo-dev-launcher:generateDebugBuildConfig UP-TO-DATE
+> Task :expo-dev-launcher:checkApolloVersions UP-TO-DATE
+> Task :expo-dev-client:mergeDebugNativeLibs NO-SOURCE
+> Task :expo-dev-client:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :react-native-blob-util:processDebugJavaRes NO-SOURCE
+> Task :react-native-pdf:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :react-native-blob-util:mergeDebugJniLibFolders UP-TO-DATE
+> Task :react-native-blob-util:mergeDebugNativeLibs NO-SOURCE
+> Task :react-native-pdf:processDebugJavaRes NO-SOURCE
+> Task :react-native-blob-util:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :expo-dev-launcher:generateServiceApolloOptions UP-TO-DATE
+> Task :react-native-pdf:mergeDebugJniLibFolders UP-TO-DATE
+> Task :react-native-pdf:mergeDebugNativeLibs NO-SOURCE
+> Task :react-native-pdf:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :expo-dev-launcher:generateServiceApolloSources UP-TO-DATE
+> Task :expo-dev-launcher:javaPreCompileDebug UP-TO-DATE
+> Task :expo-dev-launcher:mergeDebugShaders UP-TO-DATE
+> Task :expo-dev-launcher:compileDebugShaders NO-SOURCE
+> Task :expo-dev-launcher:generateDebugAssets UP-TO-DATE
+> Task :expo-dev-launcher:mergeDebugAssets UP-TO-DATE
+> Task :expo-dev-launcher:mergeDebugJniLibFolders UP-TO-DATE
+> Task :expo-dev-launcher:mergeDebugNativeLibs NO-SOURCE
+> Task :expo-dev-launcher:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :react-native-screens:compileDebugKotlin UP-TO-DATE
+> Task :react-native-screens:javaPreCompileDebug UP-TO-DATE
+> Task :react-native-reanimated:assertMinimalReactNativeVersionTask
+> Task :react-native-reanimated:assertNewArchitectureEnabledTask SKIPPED
+> Task :react-native-screens:compileDebugJavaWithJavac UP-TO-DATE
+> Task :react-native-screens:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :react-native-screens:mergeDebugShaders UP-TO-DATE
+> Task :react-native-screens:compileDebugShaders NO-SOURCE
+> Task :react-native-screens:generateDebugAssets UP-TO-DATE
+> Task :react-native-safe-area-context:compileDebugKotlin UP-TO-DATE
+> Task :react-native-safe-area-context:javaPreCompileDebug UP-TO-DATE
+> Task :react-native-safe-area-context:compileDebugJavaWithJavac UP-TO-DATE
+> Task :react-native-safe-area-context:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :react-native-screens:mergeDebugAssets UP-TO-DATE
+> Task :react-native-safe-area-context:mergeDebugShaders UP-TO-DATE
+> Task :react-native-safe-area-context:compileDebugShaders NO-SOURCE
+> Task :react-native-screens:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :react-native-safe-area-context:generateDebugAssets UP-TO-DATE
+> Task :react-native-safe-area-context:mergeDebugAssets UP-TO-DATE
+> Task :react-native-safe-area-context:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :react-native-safe-area-context:processDebugJavaRes UP-TO-DATE
+> Task :react-native-screens:processDebugJavaRes UP-TO-DATE
+> Task :react-native-safe-area-context:mergeDebugJniLibFolders UP-TO-DATE
+> Task :react-native-safe-area-context:mergeDebugNativeLibs NO-SOURCE
+> Task :react-native-safe-area-context:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :expo-modules-core:compileDebugKotlin UP-TO-DATE
+> Task :expo-modules-core:javaPreCompileDebug UP-TO-DATE
+> Task :react-native-worklets:assertMinimalReactNativeVersionTask
+> Task :react-native-worklets:assertNewArchitectureEnabledTask SKIPPED
+> Task :expo-modules-core:compileDebugJavaWithJavac UP-TO-DATE
+> Task :react-native-worklets:generateCodegenSchemaFromJavaScript UP-TO-DATE
+> Task :expo-modules-core:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :react-native-worklets:generateCodegenArtifactsFromSchema UP-TO-DATE
+> Task :expo-modules-core:mergeDebugShaders UP-TO-DATE
+> Task :react-native-worklets:prepareWorkletsHeadersForPrefabs UP-TO-DATE
+> Task :react-native-worklets:preBuild
+> Task :react-native-worklets:preDebugBuild
+> Task :react-native-worklets:writeDebugAarMetadata UP-TO-DATE
+> Task :expo-modules-core:compileDebugShaders NO-SOURCE
+> Task :expo-dev-client:compileDebugKotlin NO-SOURCE
+> Task :react-native-worklets:generateDebugResValues UP-TO-DATE
+> Task :expo-modules-core:generateDebugAssets UP-TO-DATE
+> Task :react-native-worklets:generateDebugResources UP-TO-DATE
+> Task :expo-modules-core:mergeDebugAssets UP-TO-DATE
+> Task :react-native-worklets:packageDebugResources UP-TO-DATE
+> Task :expo-modules-core:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :react-native-worklets:extractDeepLinksDebug UP-TO-DATE
+> Task :react-native-worklets:processDebugManifest UP-TO-DATE
+> Task :react-native-worklets:compileDebugLibraryResources UP-TO-DATE
+> Task :react-native-worklets:parseDebugLocalResources UP-TO-DATE
+> Task :expo-modules-core:processDebugJavaRes UP-TO-DATE
+> Task :react-native-worklets:generateDebugRFile UP-TO-DATE
+> Task :react-native-worklets:generateDebugBuildConfig UP-TO-DATE
+> Task :react-native-worklets:javaPreCompileDebug UP-TO-DATE
+> Task :react-native-worklets:compileDebugJavaWithJavac UP-TO-DATE
+> Task :react-native-worklets:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :react-native-worklets:mergeDebugShaders UP-TO-DATE
+> Task :react-native-worklets:compileDebugShaders NO-SOURCE
+> Task :react-native-worklets:generateDebugAssets UP-TO-DATE
+> Task :react-native-worklets:mergeDebugAssets UP-TO-DATE
+> Task :react-native-worklets:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :react-native-worklets:processDebugJavaRes NO-SOURCE
+> Task :react-native-screens:configureCMakeDebug[arm64-v8a]
+> Task :expo-modules-core:configureCMakeDebug[arm64-v8a]
+> Task :react-native-worklets:configureCMakeDebug[arm64-v8a]
+> Task :react-native-worklets:configureCMakeDebug[x86_64]
+> Task :react-native-worklets:generateJsonModelDebug
+> Task :react-native-worklets:prefabDebugConfigurePackage UP-TO-DATE
+> Task :react-native-reanimated:assertWorkletsVersionTask
+> Task :react-native-reanimated:generateCodegenSchemaFromJavaScript UP-TO-DATE
+> Task :react-native-reanimated:generateCodegenArtifactsFromSchema UP-TO-DATE
+> Task :react-native-reanimated:prepareReanimatedHeadersForPrefabs UP-TO-DATE
+> Task :react-native-reanimated:preBuild
+> Task :react-native-reanimated:preDebugBuild
+> Task :react-native-reanimated:writeDebugAarMetadata UP-TO-DATE
+> Task :react-native-reanimated:generateDebugResValues UP-TO-DATE
+> Task :react-native-reanimated:generateDebugResources UP-TO-DATE
+> Task :react-native-reanimated:packageDebugResources UP-TO-DATE
+> Task :react-native-reanimated:extractDeepLinksDebug UP-TO-DATE
+> Task :react-native-reanimated:processDebugManifest UP-TO-DATE
+> Task :react-native-reanimated:compileDebugLibraryResources UP-TO-DATE
+> Task :react-native-reanimated:parseDebugLocalResources UP-TO-DATE
+> Task :react-native-reanimated:generateDebugRFile UP-TO-DATE
+> Task :react-native-reanimated:generateDebugBuildConfig UP-TO-DATE
+> Task :react-native-reanimated:javaPreCompileDebug UP-TO-DATE
+> Task :app:generateAutolinkingNewArchitectureFiles UP-TO-DATE
+> Task :app:generateAutolinkingPackageList UP-TO-DATE
+> Task :app:generateCodegenSchemaFromJavaScript SKIPPED
+> Task :app:generateCodegenArtifactsFromSchema SKIPPED
+> Task :app:generateReactNativeEntryPoint UP-TO-DATE
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :app:generateDebugBuildConfig UP-TO-DATE
+> Task :app:generateDebugResValues UP-TO-DATE
+> Task :app:generateDebugResources UP-TO-DATE
+> Task :app:packageDebugResources UP-TO-DATE
+> Task :app:parseDebugLocalResources UP-TO-DATE
+> Task :app:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :app:extractDeepLinksDebug UP-TO-DATE
+> Task :react-native-reanimated:compileDebugJavaWithJavac UP-TO-DATE
+> Task :app:javaPreCompileDebug UP-TO-DATE
+> Task :react-native-reanimated:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :expo-constants:createExpoConfig
+> Task :expo-constants:preBuild
+> Task :expo-constants:preDebugBuild
+> Task :app:mergeDebugShaders UP-TO-DATE
+> Task :expo-constants:writeDebugAarMetadata UP-TO-DATE
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :expo-constants:generateDebugResValues UP-TO-DATE
+> Task :expo-constants:generateDebugResources UP-TO-DATE
+> Task :expo-constants:packageDebugResources UP-TO-DATE
+> Task :expo-constants:extractDeepLinksDebug UP-TO-DATE
+> Task :expo-constants:processDebugManifest UP-TO-DATE
+> Task :expo-constants:compileDebugLibraryResources UP-TO-DATE
+> Task :expo-constants:parseDebugLocalResources UP-TO-DATE
+> Task :expo-constants:generateDebugRFile UP-TO-DATE
+> Task :expo-constants:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :expo-constants:generateDebugBuildConfig UP-TO-DATE
+> Task :react-native-reanimated:mergeDebugShaders UP-TO-DATE
+> Task :react-native-reanimated:compileDebugShaders NO-SOURCE
+> Task :react-native-reanimated:generateDebugAssets UP-TO-DATE
+> Task :react-native-reanimated:mergeDebugAssets UP-TO-DATE
+> Task :react-native-reanimated:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :react-native-reanimated:processDebugJavaRes NO-SOURCE
+> Task :app:checkDebugAarMetadata UP-TO-DATE
+> Task :app:mapDebugSourceSetPaths UP-TO-DATE
+> Task :app:mergeDebugResources UP-TO-DATE
+> Task :app:processDebugMainManifest UP-TO-DATE
+> Task :app:processDebugManifest UP-TO-DATE
+> Task :react-native-gesture-handler:compileDebugKotlin UP-TO-DATE
+> Task :app:processDebugManifestForPackage UP-TO-DATE
+> Task :react-native-gesture-handler:compileDebugJavaWithJavac UP-TO-DATE
+> Task :react-native-gesture-handler:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :react-native-gesture-handler:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :react-native-gesture-handler:processDebugJavaRes UP-TO-DATE
+> Task :app:processDebugResources UP-TO-DATE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:desugarDebugFileDependencies UP-TO-DATE
+> Task :app:checkDebugDuplicateClasses UP-TO-DATE
+> Task :app:mergeExtDexDebug UP-TO-DATE
+> Task :app:mergeDebugJniLibFolders UP-TO-DATE
+> Task :app:validateSigningDebug UP-TO-DATE
+> Task :app:writeDebugAppMetadata UP-TO-DATE
+> Task :app:writeDebugSigningConfigVersions UP-TO-DATE
+> Task :expo-dev-client:compileDebugJavaWithJavac
+> Task :expo-dev-client:processDebugJavaRes NO-SOURCE
+> Task :expo-dev-client:bundleLibCompileToJarDebug
+> Task :expo-dev-client:bundleLibRuntimeToJarDebug
+> Task :react-native-screens:buildCMakeDebug[arm64-v8a]
+> Task :react-native-screens:configureCMakeDebug[x86_64]
+> Task :expo-constants:javaPreCompileDebug UP-TO-DATE
+> Task :expo-constants:mergeDebugShaders UP-TO-DATE
+> Task :expo-constants:compileDebugShaders NO-SOURCE
+> Task :expo-constants:generateDebugAssets UP-TO-DATE
+> Task :expo-constants:mergeDebugAssets UP-TO-DATE
+> Task :expo-constants:mergeDebugJniLibFolders UP-TO-DATE
+> Task :expo-constants:mergeDebugNativeLibs NO-SOURCE
+> Task :app:mergeDebugAssets UP-TO-DATE
+> Task :app:compressDebugAssets UP-TO-DATE
+> Task :expo-constants:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :react-native-screens:buildCMakeDebug[x86_64]
+> Task :react-native-screens:mergeDebugJniLibFolders
+> Task :react-native-screens:mergeDebugNativeLibs
+> Task :react-native-screens:copyDebugJniLibsProjectOnly
+> Task :react-native-worklets:buildCMakeDebug[arm64-v8a][worklets]
+
+> Task :expo-modules-core:buildCMakeDebug[arm64-v8a] FAILED
+C/C++: ninja: Entering directory `D:\Apps\Inv\EscanerCodigos\node_modules\expo-modules-core\android\.cxx\Debug\2n20305q\arm64-v8a'
+C/C++: C:\Users\Saul\AppData\Local\Android\Sdk\ndk\26.3.11579264\toolchains\llvm\prebuilt\windows-x86_64\bin\clang++.exe --target=aarch64-none-linux-android24 --sysroot=C:/Users/Saul/AppData/Local/Android/Sdk/ndk/26.3.11579264/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -ID:/Apps/Inv/EscanerCodigos/node_modules/react-native/ReactCommon -ID:/Apps/Inv/EscanerCodigos/node_modules/expo-modules-core/android/../common/cpp/fabric -IC:/Users/Saul/.gradle/caches/8.14.3/transforms/3f070ff3b5e25a97fad1b7cc961e77af/transformed/react-android-0.81.5-debug/prefab/modules/reactnative/include/react/fabric -isystem C:/Users/Saul/.gradle/caches/8.14.3/transforms/5255993905c89baba10f15b91b9f9c3a/transformed/fbjni-0.7.0/prefab/modules/fbjni/include -isystem C:/Users/Saul/.gradle/caches/8.14.3/transforms/3f070ff3b5e25a97fad1b7cc961e77af/transformed/react-android-0.81.5-debug/prefab/modules/jsi/include -isystem C:/Users/Saul/.gradle/caches/8.14.3/transforms/3f070ff3b5e25a97fad1b7cc961e77af/transformed/react-android-0.81.5-debug/prefab/modules/reactnative/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -DREACT_NATIVE_TARGET_VERSION=81 -fno-limit-debug-info  -fPIC -std=c++20 -DFOLLY_NO_CONFIG=1 -DFOLLY_HAVE_CLOCK_GETTIME=1 -DFOLLY_USE_LIBCPP=1 -DFOLLY_CFG_NO_COROUTINES=1 -DFOLLY_MOBILE=1 -DFOLLY_HAVE_RECVMMSG=1 -DFOLLY_HAVE_PTHREAD=1 -DFOLLY_HAVE_XSI_STRERROR_R=1 -O2 -frtti -fexceptions -Wall -fstack-protector-all -DUSE_HERMES=0 -DUNIT_TEST=0 -DIS_NEW_ARCHITECTURE_ENABLED=1 -DRN_FABRIC_ENABLED=1 -DRN_SERIALIZABLE_STATE=1 -std=gnu++20 -Winvalid-pch -Xclang -include-pch -Xclang D:/Apps/Inv/EscanerCodigos/node_modules/expo-modules-core/android/.cxx/Debug/2n20305q/arm64-v8a/src/fabric/CMakeFiles/fabric.dir/cmake_pch.hxx.pch -Xclang -include -Xclang D:/Apps/Inv/EscanerCodigos/node_modules/expo-modules-core/android/.cxx/Debug/2n20305q/arm64-v8a/src/fabric/CMakeFiles/fabric.dir/cmake_pch.hxx -MD -MT src/fabric/CMakeFiles/fabric.dir/D_/Apps/Inv/EscanerCodigos/node_modules/expo-modules-core/common/cpp/fabric/ExpoViewProps.cpp.o -MF src\fabric\CMakeFiles\fabric.dir\D_\Apps\Inv\EscanerCodigos\node_modules\expo-modules-core\common\cpp\fabric\ExpoViewProps.cpp.o.d -o src/fabric/CMakeFiles/fabric.dir/D_/Apps/Inv/EscanerCodigos/node_modules/expo-modules-core/common/cpp/fabric/ExpoViewProps.cpp.o -c D:/Apps/Inv/EscanerCodigos/node_modules/expo-modules-core/common/cpp/fabric/ExpoViewProps.cpp
+C/C++: In file included from D:/Apps/Inv/EscanerCodigos/node_modules/expo-modules-core/common/cpp/fabric/ExpoViewProps.cpp:4:
+C/C++: In file included from D:/Apps/Inv/EscanerCodigos/node_modules/react-native/ReactCommon/react/renderer/core/propsConversions.h:15:
+C/C++: D:/Apps/Inv/EscanerCodigos/node_modules/react-native/ReactCommon/react/renderer/core/graphicsConversions.h:80:14: error: no member named 'format' in namespace 'std'; did you mean 'folly::format'?
+C/C++:       return std::format("{}%", dimension.value);
+C/C++:              ^~~~~~~~~~~
+C/C++:              folly::format
+C/C++: C:/Users/Saul/.gradle/caches/8.14.3/transforms/3f070ff3b5e25a97fad1b7cc961e77af/transformed/react-android-0.81.5-debug/prefab/modules/reactnative/include/folly/Format.h:291:1: note: 'folly::format' declared here
+C/C++: format(StringPiece fmt, Args&&... args) {
+C/C++: ^
+C/C++: In file included from D:/Apps/Inv/EscanerCodigos/node_modules/expo-modules-core/common/cpp/fabric/ExpoViewProps.cpp:4:
+C/C++: In file included from D:/Apps/Inv/EscanerCodigos/node_modules/react-native/ReactCommon/react/renderer/core/propsConversions.h:15:
+C/C++: D:/Apps/Inv/EscanerCodigos/node_modules/react-native/ReactCommon/react/renderer/core/graphicsConversions.h:80:14: error: no viable conversion from returned value of type 'Formatter<false, const float &>' to function return type 'folly::dynamic'
+C/C++:       return std::format("{}%", dimension.value);
+C/C++:              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C/C++: C:/Users/Saul/.gradle/caches/8.14.3/transforms/3f070ff3b5e25a97fad1b7cc961e77af/transformed/react-android-0.81.5-debug/prefab/modules/reactnative/include/folly/json/dynamic.h:238:18: note: candidate constructor not viable: no known conversion from 'Formatter<false, const float &>' to 'const ObjectMaker &' for 1st argument
+C/C++:   /* implicit */ dynamic(ObjectMaker const&) = delete;
+C/C++:                  ^
+C/C++: C:/Users/Saul/.gradle/caches/8.14.3/transforms/3f070ff3b5e25a97fad1b7cc961e77af/transformed/react-android-0.81.5-debug/prefab/modules/reactnative/include/folly/json/dynamic.h:289:3: note: candidate constructor not viable: no known conversion from 'Formatter<false, const float &>' to 'const dynamic &' for 1st argument
+C/C++:   dynamic(dynamic const&);
+C/C++:   ^
+C/C++: C:/Users/Saul/.gradle/caches/8.14.3/transforms/3f070ff3b5e25a97fad1b7cc961e77af/transformed/react-android-0.81.5-debug/prefab/modules/reactnative/include/folly/json/dynamic.h:290:3: note: candidate constructor not viable: no known conversion from 'Formatter<false, const float &>' to 'dynamic &&' for 1st argument
+C/C++:   dynamic(dynamic&&) noexcept;
+C/C++:   ^
+C/C++: C:/Users/Saul/.gradle/caches/8.14.3/transforms/3f070ff3b5e25a97fad1b7cc961e77af/transformed/react-android-0.81.5-debug/prefab/modules/reactnative/include/folly/json/dynamic-inl.h:321:17: note: candidate constructor not viable: no known conversion from 'Formatter<false, const float &>' to 'std::nullptr_t' for 1st argument
+C/C++: inline dynamic::dynamic(std::nullptr_t) : type_(NULLT) {}
+C/C++:                 ^
+C/C++: C:/Users/Saul/.gradle/caches/8.14.3/transforms/3f070ff3b5e25a97fad1b7cc961e77af/transformed/react-android-0.81.5-debug/prefab/modules/reactnative/include/folly/json/dynamic-inl.h:323:17: note: candidate constructor not viable: no known conversion from 'Formatter<false, const float &>' to 'void (*)(EmptyArrayTag)' for 1st argument
+C/C++: inline dynamic::dynamic(void (*)(EmptyArrayTag)) : type_(ARRAY) {
+C/C++:                 ^
+C/C++: C:/Users/Saul/.gradle/caches/8.14.3/transforms/3f070ff3b5e25a97fad1b7cc961e77af/transformed/react-android-0.81.5-debug/prefab/modules/reactnative/include/folly/json/dynamic-inl.h:327:17: note: candidate constructor not viable: no known conversion from 'Formatter<false, const float &>' to 'ObjectMaker (*)()' for 1st argument
+C/C++: inline dynamic::dynamic(ObjectMaker (*)()) : type_(OBJECT) {
+C/C++:                 ^
+C/C++: C:/Users/Saul/.gradle/caches/8.14.3/transforms/3f070ff3b5e25a97fad1b7cc961e77af/transformed/react-android-0.81.5-debug/prefab/modules/reactnative/include/folly/json/dynamic-inl.h:331:17: note: candidate constructor not viable: no known conversion from 'Formatter<false, const float &>' to 'const char *' for 1st argument
+C/C++: inline dynamic::dynamic(char const* s) : type_(STRING) {
+C/C++:                 ^
+C/C++: C:/Users/Saul/.gradle/caches/8.14.3/transforms/3f070ff3b5e25a97fad1b7cc961e77af/transformed/react-android-0.81.5-debug/prefab/modules/reactnative/include/folly/json/dynamic-inl.h:335:17: note: candidate constructor not viable: no known conversion from 'Formatter<false, const float &>' to 'std::string' (aka 'basic_string<char>') for 1st argument
+C/C++: inline dynamic::dynamic(std::string s) : type_(STRING) {
+C/C++:                 ^
+C/C++: C:/Users/Saul/.gradle/caches/8.14.3/transforms/3f070ff3b5e25a97fad1b7cc961e77af/transformed/react-android-0.81.5-debug/prefab/modules/reactnative/include/folly/json/dynamic-inl.h:344:17: note: candidate constructor not viable: no known conversion from 'Formatter<false, const float &>' to 'ObjectMaker &&' for 1st argument
+C/C++: inline dynamic::dynamic(ObjectMaker&& maker) : type_(OBJECT) {
+C/C++:                 ^
+C/C++: C:/Users/Saul/.gradle/caches/8.14.3/transforms/3f070ff3b5e25a97fad1b7cc961e77af/transformed/react-android-0.81.5-debug/prefab/modules/reactnative/include/folly/json/dynamic-inl.h:376:17: note: candidate constructor not viable: no known conversion from 'Formatter<false, const float &>' to 'std::vector<bool>::reference' (aka '__bit_reference<vector<bool, allocator<bool>>>') for 1st argument
+C/C++: inline dynamic::dynamic(std::vector<bool>::reference b)
+C/C++:                 ^
+C/C++: C:/Users/Saul/.gradle/caches/8.14.3/transforms/3f070ff3b5e25a97fad1b7cc961e77af/transformed/react-android-0.81.5-debug/prefab/modules/reactnative/include/folly/json/dynamic-inl.h:378:17: note: candidate constructor not viable: no known conversion from 'Formatter<false, const float &>' to 'VectorBoolConstRefCtorType' (aka 'std::__bit_const_reference<std::vector<bool>>') for 1st argument
+C/C++: inline dynamic::dynamic(VectorBoolConstRefCtorType b)
+C/C++:                 ^
+C/C++: C:/Users/Saul/.gradle/caches/8.14.3/transforms/3f070ff3b5e25a97fad1b7cc961e77af/transformed/react-android-0.81.5-debug/prefab/modules/reactnative/include/folly/json/dynamic-inl.h:340:17: note: candidate template ignored: requirement 'is_detected_v<folly::dynamic_detail::detect_construct_string, folly::Formatter<false, const float &>>' was not satisfied [with Stringish = Formatter<false, const float &>]
+C/C++: inline dynamic::dynamic(Stringish&& s) : type_(STRING) {
+C/C++:                 ^
+C/C++: C:/Users/Saul/.gradle/caches/8.14.3/transforms/3f070ff3b5e25a97fad1b7cc961e77af/transformed/react-android-0.81.5-debug/prefab/modules/reactnative/include/folly/json/dynamic-inl.h:384:10: note: candidate template ignored: substitution failure [with T = Formatter<false, const float &>]: implicit instantiation of undefined template 'folly::dynamic::NumericTypeHelper<folly::Formatter<false, const float &>>'
+C/C++: dynamic::dynamic(T t) {
+C/C++:          ^
+C/C++: C:/Users/Saul/.gradle/caches/8.14.3/transforms/3f070ff3b5e25a97fad1b7cc961e77af/transformed/react-android-0.81.5-debug/prefab/modules/reactnative/include/folly/json/dynamic.h:1115:12: note: explicit constructor is not a candidate
+C/C++:   explicit dynamic(Array&& r);
+C/C++:            ^
+C/C++: 2 errors generated.
+
+> Task :expo-json-utils:compileDebugKotlin
+
+> Task :expo-dev-menu-interface:compileDebugKotlin
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-dev-menu-interface/android/src/main/java/expo/interfaces/devmenu/DevMenuInterfacePackage.kt:14:16 This declaration overrides a deprecated member but is not marked as deprecated itself. Add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-dev-menu-interface/android/src/main/java/expo/interfaces/devmenu/ReactHostWrapper.kt:5:8 'class ReactNativeHost : Any' is deprecated. Deprecated in Java.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-dev-menu-interface/android/src/main/java/expo/interfaces/devmenu/ReactHostWrapper.kt:19:41 'class ReactNativeHost : Any' is deprecated. Deprecated in Java.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-dev-menu-interface/android/src/main/java/expo/interfaces/devmenu/ReactHostWrapper.kt:20:33 'class ReactNativeHost : Any' is deprecated. Deprecated in Java.
+
+> Task :expo-updates-interface:compileDebugKotlin
+
+> Task :expo-constants:compileDebugKotlin
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-constants/android/src/main/java/expo/modules/constants/ConstantsModule.kt:12:5 'fun Constants(legacyConstantsProvider: () -> Map<String, Any?>): Unit' is deprecated. Use `Constant` or `Property` instead.
+
+> Task :expo-image-loader:compileDebugKotlin
+
+> Task :expo-barcode-scanner:compileDebugKotlin FAILED
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerModule.kt:10:32 Unresolved reference 'barcodescanner'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerModule.kt:77:21 Unresolved reference 'setSettings'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerModule.kt:78:15 Unresolved reference 'BarCodeScannerSettings'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerModule.kt:78:40 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerModule.kt:78:46 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerModule.kt:79:17 Unresolved reference 'putTypes'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerModule.kt:84:38 Unresolved reference 'scanMultiple'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerModule.kt:85:49 Unresolved reference 'it'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerModule.kt:86:64 Unresolved reference 'it'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerModule.kt:115:26 Unresolved reference 'BarCodeScannerSettings'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerModule.kt:115:51 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerModule.kt:115:57 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerModule.kt:116:13 Unresolved reference 'putTypes'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerProvider.kt:5:32 Unresolved reference 'barcodescanner'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerProvider.kt:6:32 Unresolved reference 'barcodescanner'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerProvider.kt:9:48 Unresolved reference 'BarCodeScannerProviderInterface'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerProvider.kt:10:16 Return type of 'getExportedInterfaces' is not a subtype of the return type of the overridden member 'fun getExportedInterfaces(): (Mutable)List<out (Class<Any!>..Class<*>?)>!' defined in 'expo/modules/core/interfaces/InternalModule'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerProvider.kt:11:5 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerProvider.kt:11:12 Unresolved reference 'BarCodeScannerProviderInterface'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerProvider.kt:11:12 Argument type mismatch: actual type is 'Class<T#1 (of val <T> KClass<T>.java)>', but 'T#2 (of fun <T> listOf)' was expected.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerProvider.kt:11:51 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerProvider.kt:11:51 Unresolved reference. None of the following candidates is applicable because of a receiver type mismatch:
+val <T> KClass<T>.java: Class<T>
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerProvider.kt:13:3 'createBarCodeDetectorWithContext' overrides nothing.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerProvider.kt:13:68 Unresolved reference 'BarCodeScannerInterface'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerView.kt:14:32 Unresolved reference 'barcodescanner'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerView.kt:15:32 Unresolved reference 'barcodescanner'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerView.kt:65:33 Unresolved reference 'BarCodeScannerResult'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerView.kt:67:77 Unresolved reference 'cornerPoints'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerView.kt:67:99 Unresolved reference 'boundingBox'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerView.kt:71:24 Unresolved reference 'value'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerView.kt:72:23 Unresolved reference 'raw'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerView.kt:73:24 Unresolved reference 'type'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerView.kt:83:71 Unresolved reference 'BarCodeScannerResult'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerView.kt:84:32 Unresolved reference 'cornerPoints'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerView.kt:90:35 Unresolved reference 'referenceImageHeight'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerView.kt:90:58 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerView.kt:93:35 Unresolved reference 'referenceImageWidth'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerView.kt:93:57 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerView.kt:97:8 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerView.kt:97:50 Unresolved reference 'referenceImageWidth'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerView.kt:101:8 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerView.kt:101:51 Unresolved reference 'referenceImageHeight'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerView.kt:104:13 Unresolved reference 'referenceImageHeight'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerView.kt:105:13 Unresolved reference 'referenceImageWidth'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerView.kt:106:13 Unresolved reference 'cornerPoints'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerView.kt:111:18 Unresolved reference 'BarCodeScannerResult'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerView.kt:129:37 Unresolved reference 'x'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerView.kt:130:37 Unresolved reference 'y'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerView.kt:136:41 Unresolved reference 'width'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerView.kt:137:42 Unresolved reference 'height'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerView.kt:150:43 Unresolved reference 'BarCodeScannerSettings'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerViewFinder.kt:12:32 Unresolved reference 'barcodescanner'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerViewFinder.kt:13:32 Unresolved reference 'barcodescanner'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerViewFinder.kt:14:32 Unresolved reference 'barcodescanner'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerViewFinder.kt:44:31 Unresolved reference 'BarCodeScannerInterface'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerViewFinder.kt:166:58 Unresolved reference 'BarCodeScannerProviderInterface'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerViewFinder.kt:167:46 Unresolved reference 'createBarCodeDetectorWithContext'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerViewFinder.kt:177:43 Unresolved reference 'BarCodeScannerSettings'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/BarCodeScannerViewFinder.kt:178:21 Unresolved reference 'setSettings'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/scanners/ExpoBarCodeScanner.kt:4:32 Unresolved reference 'barcodescanner'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/scanners/ExpoBarCodeScanner.kt:5:32 Unresolved reference 'barcodescanner'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/scanners/ExpoBarCodeScanner.kt:7:91 Unresolved reference 'BarCodeScannerInterface'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/scanners/ExpoBarCodeScanner.kt:25:47 Unresolved reference 'BarCodeScannerSettings'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/scanners/ExpoBarCodeScanner.kt:26:42 Unresolved reference 'types'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/scanners/MLKitBarCodeScanner.kt:11:32 Unresolved reference 'barcodescanner'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/scanners/MLKitBarCodeScanner.kt:12:32 Unresolved reference 'barcodescanner'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/scanners/MLKitBarCodeScanner.kt:27:3 'scan' overrides nothing.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/scanners/MLKitBarCodeScanner.kt:30:17 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/scanners/MLKitBarCodeScanner.kt:30:17 Unresolved reference. None of the following candidates is applicable because of a receiver type mismatch:
+fun <T> Collection<T>.isNotEmpty(): Boolean
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/scanners/MLKitBarCodeScanner.kt:36:3 'scanMultiple' overrides nothing.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/scanners/MLKitBarCodeScanner.kt:36:51 Unresolved reference 'BarCodeScannerResult'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/scanners/MLKitBarCodeScanner.kt:41:58 Unresolved reference 'BarCodeScannerResult'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/scanners/MLKitBarCodeScanner.kt:41:82 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/scanners/MLKitBarCodeScanner.kt:44:35 Unresolved reference 'BarCodeScannerResult'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/scanners/MLKitBarCodeScanner.kt:62:21 Unresolved reference 'BarCodeScannerResult'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/scanners/MLKitBarCodeScanner.kt:67:26 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/scanners/MLKitBarCodeScanner.kt:67:26 Argument type mismatch: actual type is 'List<T (of fun <T> emptyList)>', but 'MutableList<ERROR CLASS: Cannot infer argument for type parameter T>' was expected.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/scanners/MLKitBarCodeScanner.kt:71:3 'setSettings' overrides nothing.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/scanners/MLKitBarCodeScanner.kt:71:38 Unresolved reference 'BarCodeScannerSettings'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/utils/BarCodeScannerResultSerializer.kt:5:32 Unresolved reference 'barcodescanner'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/utils/BarCodeScannerResultSerializer.kt:6:32 Unresolved reference 'barcodescanner'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/utils/BarCodeScannerResultSerializer.kt:9:24 Unresolved reference 'BarCodeScannerResult'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/utils/BarCodeScannerResultSerializer.kt:11:32 Unresolved reference 'value'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/utils/BarCodeScannerResultSerializer.kt:12:31 Unresolved reference 'raw'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/utils/BarCodeScannerResultSerializer.kt:13:29 Unresolved reference 'type'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/utils/BarCodeScannerResultSerializer.kt:14:77 Unresolved reference 'cornerPoints'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/utils/BarCodeScannerResultSerializer.kt:14:98 Unresolved reference 'boundingBox'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/utils/BarCodeScannerResultSerializer.kt:21:18 Unresolved reference 'BoundingBox'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/utils/BarCodeScannerResultSerializer.kt:32:52 Unresolved reference 'x'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/utils/BarCodeScannerResultSerializer.kt:32:87 Unresolved reference 'y'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/utils/BarCodeScannerResultSerializer.kt:33:49 Unresolved reference 'width'.
+e: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-barcode-scanner/android/src/main/java/expo/modules/barcodescanner/utils/BarCodeScannerResultSerializer.kt:33:88 Unresolved reference 'height'.
+
+> Task :react-native-worklets:buildCMakeDebug[x86_64][worklets]
+C/C++: Hard link from 'C:\Users\Saul\.gradle\caches\8.14.3\transforms\3f070ff3b5e25a97fad1b7cc961e77af\transformed\react-android-0.81.5-debug\prefab\modules\reactnative\libs\android.x86_64\libreactnative.so' to 'D:\Apps\Inv\EscanerCodigos\node_modules\react-native-worklets\android\build\intermediates\cxx\Debug\332k4y3i\obj\x86_64\libreactnative.so' failed. Doing a slower copy instead.
+C/C++: Hard link from 'C:\Users\Saul\.gradle\caches\8.14.3\transforms\3f070ff3b5e25a97fad1b7cc961e77af\transformed\react-android-0.81.5-debug\prefab\modules\reactnative\libs\android.x86_64\libreactnative.so' to 'D:\Apps\Inv\EscanerCodigos\node_modules\react-native-worklets\android\build\intermediates\cxx\Debug\332k4y3i\obj\x86_64\libreactnative.so' failed. Doing a slower copy instead.
+
+> Task :react-native-reanimated:configureCMakeDebug[arm64-v8a]
+
+[Incubating] Problems report is available at: file:///D:/Apps/Inv/EscanerCodigos/android/build/reports/problems/problems-report.html
+
+FAILURE: Build completed with 2 failures.
+
+1: Task failed with an exception.
+-----------
+* What went wrong:
+Execution failed for task ':expo-modules-core:buildCMakeDebug[arm64-v8a]'.
+> com.android.ide.common.process.ProcessException: ninja: Entering directory `D:\Apps\Inv\EscanerCodigos\node_modules\expo-modules-core\android\.cxx\Debug\2n20305q\arm64-v8a'
+  [1/3] Building CXX object src/fabric/CMakeFiles/fabric.dir/D_/Apps/Inv/EscanerCodigos/node_modules/expo-modules-core/common/cpp/fabric/ExpoViewProps.cpp.o
+  FAILED: src/fabric/CMakeFiles/fabric.dir/D_/Apps/Inv/EscanerCodigos/node_modules/expo-modules-core/common/cpp/fabric/ExpoViewProps.cpp.o 
+  C:\Users\Saul\AppData\Local\Android\Sdk\ndk\26.3.11579264\toolchains\llvm\prebuilt\windows-x86_64\bin\clang++.exe --target=aarch64-none-linux-android24 --sysroot=C:/Users/Saul/AppData/Local/Android/Sdk/ndk/26.3.11579264/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -ID:/Apps/Inv/EscanerCodigos/node_modules/react-native/ReactCommon -ID:/Apps/Inv/EscanerCodigos/node_modules/expo-modules-core/android/../common/cpp/fabric -IC:/Users/Saul/.gradle/caches/8.14.3/transforms/3f070ff3b5e25a97fad1b7cc961e77af/transformed/react-android-0.81.5-debug/prefab/modules/reactnative/include/react/fabric -isystem C:/Users/Saul/.gradle/caches/8.14.3/transforms/5255993905c89baba10f15b91b9f9c3a/transformed/fbjni-0.7.0/prefab/modules/fbjni/include -isystem C:/Users/Saul/.gradle/caches/8.14.3/transforms/3f070ff3b5e25a97fad1b7cc961e77af/transformed/react-android-0.81.5-debug/prefab/modules/jsi/include -isystem C:/Users/Saul/.gradle/caches/8.14.3/transforms/3f070ff3b5e25a97fad1b7cc961e77af/transformed/react-android-0.81.5-debug/prefab/modules/reactnative/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -DREACT_NATIVE_TARGET_VERSION=81 -fno-limit-debug-info  -fPIC -std=c++20 -DFOLLY_NO_CONFIG=1 -DFOLLY_HAVE_CLOCK_GETTIME=1 -DFOLLY_USE_LIBCPP=1 -DFOLLY_CFG_NO_COROUTINES=1 -DFOLLY_MOBILE=1 -DFOLLY_HAVE_RECVMMSG=1 -DFOLLY_HAVE_PTHREAD=1 -DFOLLY_HAVE_XSI_STRERROR_R=1 -O2 -frtti -fexceptions -Wall -fstack-protector-all -DUSE_HERMES=0 -DUNIT_TEST=0 -DIS_NEW_ARCHITECTURE_ENABLED=1 -DRN_FABRIC_ENABLED=1 -DRN_SERIALIZABLE_STATE=1 -std=gnu++20 -Winvalid-pch -Xclang -include-pch -Xclang D:/Apps/Inv/EscanerCodigos/node_modules/expo-modules-core/android/.cxx/Debug/2n20305q/arm64-v8a/src/fabric/CMakeFiles/fabric.dir/cmake_pch.hxx.pch -Xclang -include -Xclang D:/Apps/Inv/EscanerCodigos/node_modules/expo-modules-core/android/.cxx/Debug/2n20305q/arm64-v8a/src/fabric/CMakeFiles/fabric.dir/cmake_pch.hxx -MD -MT src/fabric/CMakeFiles/fabric.dir/D_/Apps/Inv/EscanerCodigos/node_modules/expo-modules-core/common/cpp/fabric/ExpoViewProps.cpp.o -MF src\fabric\CMakeFiles\fabric.dir\D_\Apps\Inv\EscanerCodigos\node_modules\expo-modules-core\common\cpp\fabric\ExpoViewProps.cpp.o.d -o src/fabric/CMakeFiles/fabric.dir/D_/Apps/Inv/EscanerCodigos/node_modules/expo-modules-core/common/cpp/fabric/ExpoViewProps.cpp.o -c D:/Apps/Inv/EscanerCodigos/node_modules/expo-modules-core/common/cpp/fabric/ExpoViewProps.cpp
+  In file included from D:/Apps/Inv/EscanerCodigos/node_modules/expo-modules-core/common/cpp/fabric/ExpoViewProps.cpp:4:
+  In file included from D:/Apps/Inv/EscanerCodigos/node_modules/react-native/ReactCommon/react/renderer/core/propsConversions.h:15:
+  D:/Apps/Inv/EscanerCodigos/node_modules/react-native/ReactCommon/react/renderer/core/graphicsConversions.h:80:14: error: no member named 'format' in namespace 'std'; did you mean 'folly::format'?
+        return std::format("{}%", dimension.value);
+               ^~~~~~~~~~~
+               folly::format
+  C:/Users/Saul/.gradle/caches/8.14.3/transforms/3f070ff3b5e25a97fad1b7cc961e77af/transformed/react-android-0.81.5-debug/prefab/modules/reactnative/include/folly/Format.h:291:1: note: 'folly::format' declared here
+  format(StringPiece fmt, Args&&... args) {
+  ^
+  In file included from D:/Apps/Inv/EscanerCodigos/node_modules/expo-modules-core/common/cpp/fabric/ExpoViewProps.cpp:4:
+  In file included from D:/Apps/Inv/EscanerCodigos/node_modules/react-native/ReactCommon/react/renderer/core/propsConversions.h:15:
+  D:/Apps/Inv/EscanerCodigos/node_modules/react-native/ReactCommon/react/renderer/core/graphicsConversions.h:80:14: error: no viable conversion from returned value of type 'Formatter<false, const float &>' to function return type 'folly::dynamic'
+        return std::format("{}%", dimension.value);
+               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  C:/Users/Saul/.gradle/caches/8.14.3/transforms/3f070ff3b5e25a97fad1b7cc961e77af/transformed/react-android-0.81.5-debug/prefab/modules/reactnative/include/folly/json/dynamic.h:238:18: note: candidate constructor not viable: no known conversion from 'Formatter<false, const float &>' to 'const ObjectMaker &' for 1st argument
+    /* implicit */ dynamic(ObjectMaker const&) = delete;
+                   ^
+  C:/Users/Saul/.gradle/caches/8.14.3/transforms/3f070ff3b5e25a97fad1b7cc961e77af/transformed/react-android-0.81.5-debug/prefab/modules/reactnative/include/folly/json/dynamic.h:289:3: note: candidate constructor not viable: no known conversion from 'Formatter<false, const float &>' to 'const dynamic &' for 1st argument
+    dynamic(dynamic const&);
+    ^
+  C:/Users/Saul/.gradle/caches/8.14.3/transforms/3f070ff3b5e25a97fad1b7cc961e77af/transformed/react-android-0.81.5-debug/prefab/modules/reactnative/include/folly/json/dynamic.h:290:3: note: candidate constructor not viable: no known conversion from 'Formatter<false, const float &>' to 'dynamic &&' for 1st argument
+    dynamic(dynamic&&) noexcept;
+    ^
+  C:/Users/Saul/.gradle/caches/8.14.3/transforms/3f070ff3b5e25a97fad1b7cc961e77af/transformed/react-android-0.81.5-debug/prefab/modules/reactnative/include/folly/json/dynamic-inl.h:321:17: note: candidate constructor not viable: no known conversion from 'Formatter<false, const float &>' to 'std::nullptr_t' for 1st argument
+  inline dynamic::dynamic(std::nullptr_t) : type_(NULLT) {}
+                  ^
+  C:/Users/Saul/.gradle/caches/8.14.3/transforms/3f070ff3b5e25a97fad1b7cc961e77af/transformed/react-android-0.81.5-debug/prefab/modules/reactnative/include/folly/json/dynamic-inl.h:323:17: note: candidate constructor not viable: no known conversion from 'Formatter<false, const float &>' to 'void (*)(EmptyArrayTag)' for 1st argument
+  inline dynamic::dynamic(void (*)(EmptyArrayTag)) : type_(ARRAY) {
+                  ^
+  C:/Users/Saul/.gradle/caches/8.14.3/transforms/3f070ff3b5e25a97fad1b7cc961e77af/transformed/react-android-0.81.5-debug/prefab/modules/reactnative/include/folly/json/dynamic-inl.h:327:17: note: candidate constructor not viable: no known conversion from 'Formatter<false, const float &>' to 'ObjectMaker (*)()' for 1st argument
+  inline dynamic::dynamic(ObjectMaker (*)()) : type_(OBJECT) {
+                  ^
+  C:/Users/Saul/.gradle/caches/8.14.3/transforms/3f070ff3b5e25a97fad1b7cc961e77af/transformed/react-android-0.81.5-debug/prefab/modules/reactnative/include/folly/json/dynamic-inl.h:331:17: note: candidate constructor not viable: no known conversion from 'Formatter<false, const float &>' to 'const char *' for 1st argument
+  inline dynamic::dynamic(char const* s) : type_(STRING) {
+                  ^
+  C:/Users/Saul/.gradle/caches/8.14.3/transforms/3f070ff3b5e25a97fad1b7cc961e77af/transformed/react-android-0.81.5-debug/prefab/modules/reactnative/include/folly/json/dynamic-inl.h:335:17: note: candidate constructor not viable: no known conversion from 'Formatter<false, const float &>' to 'std::string' (aka 'basic_string<char>') for 1st argument
+  inline dynamic::dynamic(std::string s) : type_(STRING) {
+                  ^
+  C:/Users/Saul/.gradle/caches/8.14.3/transforms/3f070ff3b5e25a97fad1b7cc961e77af/transformed/react-android-0.81.5-debug/prefab/modules/reactnative/include/folly/json/dynamic-inl.h:344:17: note: candidate constructor not viable: no known conversion from 'Formatter<false, const float &>' to 'ObjectMaker &&' for 1st argument
+  inline dynamic::dynamic(ObjectMaker&& maker) : type_(OBJECT) {
+                  ^
+  C:/Users/Saul/.gradle/caches/8.14.3/transforms/3f070ff3b5e25a97fad1b7cc961e77af/transformed/react-android-0.81.5-debug/prefab/modules/reactnative/include/folly/json/dynamic-inl.h:376:17: note: candidate constructor not viable: no known conversion from 'Formatter<false, const float &>' to 'std::vector<bool>::reference' (aka '__bit_reference<vector<bool, allocator<bool>>>') for 1st argument
+  inline dynamic::dynamic(std::vector<bool>::reference b)
+                  ^
+  C:/Users/Saul/.gradle/caches/8.14.3/transforms/3f070ff3b5e25a97fad1b7cc961e77af/transformed/react-android-0.81.5-debug/prefab/modules/reactnative/include/folly/json/dynamic-inl.h:378:17: note: candidate constructor not viable: no known conversion from 'Formatter<false, const float &>' to 'VectorBoolConstRefCtorType' (aka 'std::__bit_const_reference<std::vector<bool>>') for 1st argument
+  inline dynamic::dynamic(VectorBoolConstRefCtorType b)
+                  ^
+  C:/Users/Saul/.gradle/caches/8.14.3/transforms/3f070ff3b5e25a97fad1b7cc961e77af/transformed/react-android-0.81.5-debug/prefab/modules/reactnative/include/folly/json/dynamic-inl.h:340:17: note: candidate template ignored: requirement 'is_detected_v<folly::dynamic_detail::detect_construct_string, folly::Formatter<false, const float &>>' was not satisfied [with Stringish = Formatter<false, const float &>]
+  inline dynamic::dynamic(Stringish&& s) : type_(STRING) {
+                  ^
+  C:/Users/Saul/.gradle/caches/8.14.3/transforms/3f070ff3b5e25a97fad1b7cc961e77af/transformed/react-android-0.81.5-debug/prefab/modules/reactnative/include/folly/json/dynamic-inl.h:384:10: note: candidate template ignored: substitution failure [with T = Formatter<false, const float &>]: implicit instantiation of undefined template 'folly::dynamic::NumericTypeHelper<folly::Formatter<false, const float &>>'
+  dynamic::dynamic(T t) {
+           ^
+  C:/Users/Saul/.gradle/caches/8.14.3/transforms/3f070ff3b5e25a97fad1b7cc961e77af/transformed/react-android-0.81.5-debug/prefab/modules/reactnative/include/folly/json/dynamic.h:1115:12: note: explicit constructor is not a candidate
+    explicit dynamic(Array&& r);
+             ^
+  2 errors generated.
+  ninja: build stopped: subcommand failed.
+  
+  C++ build system [build] failed while executing:
+      @echo off
+      "C:\\Users\\Saul\\AppData\\Local\\Android\\Sdk\\cmake\\3.22.1\\bin\\ninja.exe" ^
+        -C ^
+        "D:\\Apps\\Inv\\EscanerCodigos\\node_modules\\expo-modules-core\\android\\.cxx\\Debug\\2n20305q\\arm64-v8a" ^
+        expo-modules-core
+    from D:\Apps\Inv\EscanerCodigos\node_modules\expo-modules-core\android
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+==============================================================================
+
+2: Task failed with an exception.
+-----------
+* What went wrong:
+Execution failed for task ':expo-barcode-scanner:compileDebugKotlin'.
+> A failure occurred while executing org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction
+   > Compilation error. See log for more details
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+==============================================================================
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.14.3/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 33s
+436 actionable tasks: 27 executed, 409 up-to-date
+Error: D:\Apps\Inv\EscanerCodigos\android\gradlew.bat app:assembleDebug -x lint -x test --configure-on-demand --build-cache -PreactNativeDevServerPort=8081 -PreactNativeArchitectures=x86_64,arm64-v8a exited with non-zero code: 1
+Error: D:\Apps\Inv\EscanerCodigos\android\gradlew.bat app:assembleDebug -x lint -x test --configure-on-demand --build-cache -PreactNativeDevServerPort=8081 -PreactNativeArchitectures=x86_64,arm64-v8a exited with non-zero code: 1
+    at ChildProcess.completionListener (D:\Apps\Inv\EscanerCodigos\node_modules\@expo\spawn-async\src\spawnAsync.ts:67:13)
+    at Object.onceWrapper (node:events:633:26)
+    at ChildProcess.emit (node:events:518:28)
+    at ChildProcess.cp.emit (D:\Apps\Inv\EscanerCodigos\node_modules\cross-spawn\lib\enoent.js:34:29)
+    at maybeClose (node:internal/child_process:1101:16)
+    at Process.ChildProcess._handle.onexit (node:internal/child_process:304:5)
+    ...
+    at spawnAsync (D:\Apps\Inv\EscanerCodigos\node_modules\@expo\spawn-async\src\spawnAsync.ts:28:21)
+    at spawnGradleAsync (D:\Apps\Inv\EscanerCodigos\node_modules\expo\node_modules\@expo\cli\src\start\platforms\android\gradle.ts:134:28)
+    at assembleAsync (D:\Apps\Inv\EscanerCodigos\node_modules\expo\node_modules\@expo\cli\src\start\platforms\android\gradle.ts:83:16)
+    at runAndroidAsync (D:\Apps\Inv\EscanerCodigos\node_modules\expo\node_modules\@expo\cli\src\run\android\runAndroidAsync.ts:62:24)

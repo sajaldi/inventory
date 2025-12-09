@@ -1,0 +1,591 @@
+› Building app...
+Configuration on demand is an incubating feature.
+> Task :gradle-plugin:settings-plugin:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :gradle-plugin:shared:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :expo-gradle-plugin:expo-autolinking-plugin-shared:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :expo-gradle-plugin:expo-autolinking-settings-plugin:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :gradle-plugin:settings-plugin:pluginDescriptors UP-TO-DATE
+> Task :expo-gradle-plugin:expo-autolinking-settings-plugin:pluginDescriptors UP-TO-DATE
+> Task :expo-gradle-plugin:expo-autolinking-settings-plugin:processResources UP-TO-DATE
+> Task :gradle-plugin:settings-plugin:processResources UP-TO-DATE
+> Task :gradle-plugin:shared:compileKotlin UP-TO-DATE
+> Task :expo-gradle-plugin:expo-autolinking-plugin-shared:compileKotlin UP-TO-DATE
+> Task :gradle-plugin:shared:compileJava NO-SOURCE
+> Task :expo-gradle-plugin:expo-autolinking-plugin-shared:compileJava NO-SOURCE
+> Task :gradle-plugin:shared:processResources NO-SOURCE
+> Task :gradle-plugin:shared:classes UP-TO-DATE
+> Task :expo-gradle-plugin:expo-autolinking-plugin-shared:processResources NO-SOURCE
+> Task :expo-gradle-plugin:expo-autolinking-plugin-shared:classes UP-TO-DATE
+> Task :gradle-plugin:shared:jar UP-TO-DATE
+> Task :expo-gradle-plugin:expo-autolinking-plugin-shared:jar UP-TO-DATE
+> Task :gradle-plugin:settings-plugin:compileKotlin UP-TO-DATE
+> Task :gradle-plugin:settings-plugin:compileJava NO-SOURCE
+> Task :gradle-plugin:settings-plugin:classes UP-TO-DATE
+> Task :gradle-plugin:settings-plugin:jar UP-TO-DATE
+> Task :expo-gradle-plugin:expo-autolinking-settings-plugin:compileKotlin UP-TO-DATE
+> Task :expo-gradle-plugin:expo-autolinking-settings-plugin:compileJava NO-SOURCE
+> Task :expo-gradle-plugin:expo-autolinking-settings-plugin:classes UP-TO-DATE
+> Task :expo-gradle-plugin:expo-autolinking-settings-plugin:jar UP-TO-DATE
+> Task :expo-gradle-plugin:expo-autolinking-plugin:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :gradle-plugin:react-native-gradle-plugin:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :expo-dev-launcher-gradle-plugin:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :expo-module-gradle-plugin:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :expo-dev-launcher-gradle-plugin:pluginDescriptors UP-TO-DATE
+> Task :expo-module-gradle-plugin:pluginDescriptors UP-TO-DATE
+> Task :expo-dev-launcher-gradle-plugin:processResources UP-TO-DATE
+> Task :expo-module-gradle-plugin:processResources UP-TO-DATE
+> Task :expo-gradle-plugin:expo-autolinking-plugin:compileKotlin UP-TO-DATE
+> Task :expo-gradle-plugin:expo-autolinking-plugin:compileJava NO-SOURCE
+> Task :expo-gradle-plugin:expo-autolinking-plugin:pluginDescriptors UP-TO-DATE
+> Task :gradle-plugin:react-native-gradle-plugin:compileKotlin UP-TO-DATE
+> Task :expo-gradle-plugin:expo-autolinking-plugin:processResources UP-TO-DATE
+> Task :expo-gradle-plugin:expo-autolinking-plugin:classes UP-TO-DATE
+> Task :gradle-plugin:react-native-gradle-plugin:compileJava NO-SOURCE
+> Task :gradle-plugin:react-native-gradle-plugin:pluginDescriptors UP-TO-DATE
+> Task :gradle-plugin:react-native-gradle-plugin:processResources UP-TO-DATE
+> Task :gradle-plugin:react-native-gradle-plugin:classes UP-TO-DATE
+> Task :expo-gradle-plugin:expo-autolinking-plugin:jar UP-TO-DATE
+> Task :gradle-plugin:react-native-gradle-plugin:jar UP-TO-DATE
+> Task :expo-module-gradle-plugin:compileKotlin UP-TO-DATE
+> Task :expo-module-gradle-plugin:compileJava NO-SOURCE
+> Task :expo-module-gradle-plugin:classes UP-TO-DATE
+> Task :expo-dev-launcher-gradle-plugin:compileKotlin UP-TO-DATE
+> Task :expo-module-gradle-plugin:jar UP-TO-DATE
+> Task :expo-dev-launcher-gradle-plugin:compileJava NO-SOURCE
+> Task :expo-dev-launcher-gradle-plugin:classes UP-TO-DATE
+> Task :expo-dev-launcher-gradle-plugin:jar UP-TO-DATE
+
+> Configure project :app
+ ??  [33mApplying gradle plugin[0m '[32mexpo-dev-launcher-gradle-plugin[0m'
+
+> Configure project :
+[32m[ExpoRootProject][0m Using the following versions:
+  - buildTools:  [32m36.0.0[0m
+  - minSdk:      [32m24[0m
+  - compileSdk:  [32m36[0m
+  - targetSdk:   [32m36[0m
+  - ndk:         [32m26.3.11579264[0m
+  - kotlin:      [32m2.1.20[0m
+  - ksp:         [32m2.1.20-2.0.1[0m
+
+> Configure project :expo
+
+Using expo modules
+  - [32mexpo-barcode-scanner[0m (13.0.1)
+  - [32mexpo-constants[0m (18.0.10)
+  - [32mexpo-dev-client[0m (6.0.20)
+  - [32mexpo-dev-launcher[0m (6.0.20)
+  - [32mexpo-dev-menu[0m (7.0.18)
+  - [32mexpo-dev-menu-interface[0m (2.0.0)
+  - [32mexpo-image-loader[0m (4.7.0)
+  - [32mexpo-json-utils[0m (0.15.0)
+  - [32mexpo-manifests[0m (1.0.10)
+  - [32mexpo-modules-core[0m (3.0.26)
+  - [32mexpo-updates-interface[0m (2.0.0)
+  - [33m[?][0m [32mexpo-asset[0m (12.0.10)
+  - [33m[?][0m [32mexpo-av[0m (16.0.8)
+  - [33m[?][0m [32mexpo-camera[0m (17.0.9)
+  - [33m[?][0m [32mexpo-document-picker[0m (14.0.7)
+  - [33m[?][0m [32mexpo-file-system[0m (19.0.19)
+  - [33m[?][0m [32mexpo-font[0m (14.0.9)
+  - [33m[?][0m [32mexpo-haptics[0m (15.0.7)
+  - [33m[?][0m [32mexpo-image[0m (3.0.10)
+  - [33m[?][0m [32mexpo-image-picker[0m (17.0.9)
+  - [33m[?][0m [32mexpo-keep-awake[0m (15.0.7)
+  - [33m[?][0m [32mexpo-linking[0m (8.0.9)
+  - [33m[?][0m [32mexpo-sharing[0m (14.0.7)
+  - [33m[?][0m [32mexpo-splash-screen[0m (31.0.11)
+  - [33m[?][0m [32mexpo-sqlite[0m (16.0.9)
+  - [33m[?][0m [32mexpo-system-ui[0m (6.0.8)
+  - [33m[?][0m [32mexpo-web-browser[0m (15.0.9)
+
+
+> Task :react-native-safe-area-context:preBuild UP-TO-DATE
+> Task :expo-updates-interface:preBuild UP-TO-DATE
+> Task :react-native-pdf:preBuild UP-TO-DATE
+> Task :react-native-gesture-handler:preBuild UP-TO-DATE
+> Task :react-native-blob-util:preBuild UP-TO-DATE
+> Task :react-native-async-storage_async-storage:preBuild UP-TO-DATE
+> Task :expo-dev-menu:preBuild UP-TO-DATE
+> Task :expo-manifests:preBuild UP-TO-DATE
+> Task :expo-json-utils:preBuild UP-TO-DATE
+> Task :expo-modules-core:preBuild UP-TO-DATE
+> Task :expo-image-loader:preBuild UP-TO-DATE
+> Task :expo:generatePackagesList UP-TO-DATE
+> Task :expo-dev-menu-interface:preBuild UP-TO-DATE
+> Task :expo-dev-launcher:preBuild UP-TO-DATE
+> Task :expo-dev-client:preBuild UP-TO-DATE
+> Task :expo-barcode-scanner:preBuild UP-TO-DATE
+> Task :expo-dev-client:preDebugBuild UP-TO-DATE
+> Task :expo-dev-launcher:preDebugBuild UP-TO-DATE
+> Task :expo-image-loader:preDebugBuild UP-TO-DATE
+> Task :expo-json-utils:preDebugBuild UP-TO-DATE
+> Task :expo-modules-core:preDebugBuild UP-TO-DATE
+> Task :react-native-async-storage_async-storage:preDebugBuild UP-TO-DATE
+> Task :expo-updates-interface:preDebugBuild UP-TO-DATE
+> Task :react-native-gesture-handler:preDebugBuild UP-TO-DATE
+> Task :react-native-pdf:preDebugBuild UP-TO-DATE
+> Task :expo-manifests:preDebugBuild UP-TO-DATE
+> Task :expo-modules-core:writeDebugAarMetadata UP-TO-DATE
+> Task :expo-dev-menu:preDebugBuild UP-TO-DATE
+> Task :expo-image-loader:writeDebugAarMetadata UP-TO-DATE
+> Task :expo:preBuild UP-TO-DATE
+> Task :expo-dev-menu-interface:preDebugBuild UP-TO-DATE
+> Task :expo-barcode-scanner:preDebugBuild UP-TO-DATE
+> Task :react-native-screens:preBuild UP-TO-DATE
+> Task :react-native-safe-area-context:preDebugBuild UP-TO-DATE
+> Task :expo-dev-client:writeDebugAarMetadata UP-TO-DATE
+> Task :expo-json-utils:writeDebugAarMetadata UP-TO-DATE
+> Task :expo-dev-launcher:writeDebugAarMetadata UP-TO-DATE
+> Task :react-native-pdf:writeDebugAarMetadata UP-TO-DATE
+> Task :expo-manifests:writeDebugAarMetadata UP-TO-DATE
+> Task :react-native-async-storage_async-storage:writeDebugAarMetadata UP-TO-DATE
+> Task :react-native-blob-util:preDebugBuild UP-TO-DATE
+> Task :react-native-gesture-handler:writeDebugAarMetadata UP-TO-DATE
+> Task :expo-dev-menu:writeDebugAarMetadata UP-TO-DATE
+> Task :expo:preDebugBuild UP-TO-DATE
+> Task :expo-dev-menu:generateDebugResValues UP-TO-DATE
+> Task :expo-dev-client:generateDebugResValues UP-TO-DATE
+> Task :react-native-screens:preDebugBuild UP-TO-DATE
+> Task :react-native-safe-area-context:writeDebugAarMetadata UP-TO-DATE
+> Task :expo-barcode-scanner:writeDebugAarMetadata UP-TO-DATE
+> Task :expo-dev-client:generateDebugResources UP-TO-DATE
+> Task :expo-dev-menu-interface:writeDebugAarMetadata UP-TO-DATE
+> Task :expo-dev-launcher:generateDebugResValues UP-TO-DATE
+> Task :expo-image-loader:generateDebugResValues UP-TO-DATE
+> Task :react-native-blob-util:writeDebugAarMetadata UP-TO-DATE
+> Task :expo-updates-interface:writeDebugAarMetadata UP-TO-DATE
+> Task :expo-dev-client:packageDebugResources UP-TO-DATE
+> Task :expo-modules-core:generateDebugResValues UP-TO-DATE
+> Task :expo-dev-menu-interface:generateDebugResValues UP-TO-DATE
+> Task :expo-dev-menu:generateDebugResources UP-TO-DATE
+> Task :expo-manifests:generateDebugResValues UP-TO-DATE
+> Task :expo-modules-core:generateDebugResources UP-TO-DATE
+> Task :expo-manifests:generateDebugResources UP-TO-DATE
+> Task :react-native-screens:writeDebugAarMetadata UP-TO-DATE
+> Task :expo-json-utils:generateDebugResValues UP-TO-DATE
+> Task :react-native-safe-area-context:generateDebugResValues UP-TO-DATE
+> Task :expo-barcode-scanner:generateDebugResValues UP-TO-DATE
+> Task :expo-modules-core:packageDebugResources UP-TO-DATE
+> Task :react-native-gesture-handler:generateDebugResValues UP-TO-DATE
+> Task :react-native-pdf:generateDebugResValues UP-TO-DATE
+> Task :react-native-safe-area-context:generateDebugResources UP-TO-DATE
+> Task :react-native-pdf:generateDebugResources UP-TO-DATE
+> Task :expo:generateDebugResValues FROM-CACHE
+> Task :react-native-async-storage_async-storage:generateDebugResValues UP-TO-DATE
+> Task :expo-image-loader:generateDebugResources UP-TO-DATE
+> Task :expo-updates-interface:generateDebugResValues UP-TO-DATE
+> Task :expo-dev-menu-interface:generateDebugResources UP-TO-DATE
+> Task :expo-dev-launcher:generateDebugResources UP-TO-DATE
+> Task :expo-dev-menu-interface:packageDebugResources UP-TO-DATE
+> Task :expo-manifests:packageDebugResources UP-TO-DATE
+> Task :react-native-screens:generateDebugResValues UP-TO-DATE
+> Task :expo-barcode-scanner:generateDebugResources UP-TO-DATE
+> Task :react-native-gesture-handler:generateDebugResources UP-TO-DATE
+> Task :react-native-pdf:packageDebugResources UP-TO-DATE
+> Task :expo:generateDebugResources FROM-CACHE
+> Task :expo-json-utils:generateDebugResources UP-TO-DATE
+> Task :react-native-screens:generateDebugResources UP-TO-DATE
+> Task :react-native-safe-area-context:packageDebugResources UP-TO-DATE
+> Task :react-native-async-storage_async-storage:generateDebugResources UP-TO-DATE
+> Task :expo-updates-interface:generateDebugResources UP-TO-DATE
+> Task :expo-json-utils:packageDebugResources UP-TO-DATE
+> Task :expo:writeDebugAarMetadata
+> Task :react-native-async-storage_async-storage:packageDebugResources UP-TO-DATE
+> Task :expo-dev-client:extractDeepLinksDebug UP-TO-DATE
+> Task :expo-image-loader:packageDebugResources UP-TO-DATE
+> Task :expo-dev-menu-interface:extractDeepLinksDebug UP-TO-DATE
+> Task :expo-updates-interface:packageDebugResources UP-TO-DATE
+> Task :expo-dev-menu-interface:processDebugManifest UP-TO-DATE
+> Task :expo-json-utils:extractDeepLinksDebug UP-TO-DATE
+> Task :expo-dev-menu:packageDebugResources UP-TO-DATE
+> Task :expo-manifests:extractDeepLinksDebug UP-TO-DATE
+> Task :expo-json-utils:processDebugManifest UP-TO-DATE
+> Task :react-native-screens:packageDebugResources UP-TO-DATE
+> Task :react-native-gesture-handler:packageDebugResources UP-TO-DATE
+> Task :expo-updates-interface:extractDeepLinksDebug UP-TO-DATE
+> Task :expo-dev-menu:extractDeepLinksDebug UP-TO-DATE
+> Task :react-native-blob-util:generateDebugResValues UP-TO-DATE
+> Task :expo-image-loader:extractDeepLinksDebug UP-TO-DATE
+> Task :expo-modules-core:extractDeepLinksDebug UP-TO-DATE
+> Task :expo-barcode-scanner:packageDebugResources UP-TO-DATE
+> Task :expo-dev-client:processDebugManifest UP-TO-DATE
+> Task :expo-updates-interface:processDebugManifest UP-TO-DATE
+> Task :react-native-gesture-handler:extractDeepLinksDebug UP-TO-DATE
+> Task :expo-modules-core:processDebugManifest UP-TO-DATE
+> Task :react-native-safe-area-context:extractDeepLinksDebug UP-TO-DATE
+> Task :react-native-screens:extractDeepLinksDebug UP-TO-DATE
+> Task :expo-dev-launcher:packageDebugResources UP-TO-DATE
+> Task :react-native-blob-util:generateDebugResources UP-TO-DATE
+> Task :react-native-async-storage_async-storage:extractDeepLinksDebug UP-TO-DATE
+> Task :expo-dev-client:compileDebugLibraryResources UP-TO-DATE
+> Task :expo-manifests:processDebugManifest UP-TO-DATE
+> Task :expo-image-loader:processDebugManifest UP-TO-DATE
+> Task :react-native-gesture-handler:processDebugManifest UP-TO-DATE
+> Task :react-native-pdf:extractDeepLinksDebug UP-TO-DATE
+> Task :expo-dev-menu-interface:compileDebugLibraryResources UP-TO-DATE
+> Task :react-native-safe-area-context:processDebugManifest UP-TO-DATE
+> Task :expo-json-utils:compileDebugLibraryResources UP-TO-DATE
+> Task :expo-dev-menu-interface:parseDebugLocalResources UP-TO-DATE
+> Task :expo-barcode-scanner:extractDeepLinksDebug UP-TO-DATE
+> Task :expo-image-loader:compileDebugLibraryResources UP-TO-DATE
+> Task :expo-json-utils:parseDebugLocalResources UP-TO-DATE
+> Task :expo-dev-client:parseDebugLocalResources UP-TO-DATE
+> Task :expo-manifests:compileDebugLibraryResources UP-TO-DATE
+> Task :expo-dev-menu:processDebugManifest UP-TO-DATE
+> Task :expo-barcode-scanner:processDebugManifest UP-TO-DATE
+> Task :expo-dev-menu-interface:generateDebugRFile UP-TO-DATE
+> Task :expo-json-utils:generateDebugRFile UP-TO-DATE
+> Task :expo-dev-launcher:extractDeepLinksDebug UP-TO-DATE
+> Task :expo-modules-core:compileDebugLibraryResources UP-TO-DATE
+> Task :expo-updates-interface:compileDebugLibraryResources UP-TO-DATE
+> Task :react-native-blob-util:packageDebugResources UP-TO-DATE
+> Task :expo-barcode-scanner:compileDebugLibraryResources UP-TO-DATE
+> Task :react-native-screens:processDebugManifest UP-TO-DATE
+> Task :expo-modules-core:parseDebugLocalResources UP-TO-DATE
+> Task :react-native-async-storage_async-storage:processDebugManifest UP-TO-DATE
+> Task :react-native-pdf:processDebugManifest UP-TO-DATE
+> Task :react-native-gesture-handler:compileDebugLibraryResources UP-TO-DATE
+> Task :react-native-async-storage_async-storage:compileDebugLibraryResources UP-TO-DATE
+> Task :expo-dev-client:generateDebugRFile UP-TO-DATE
+> Task :expo-modules-core:generateDebugRFile UP-TO-DATE
+> Task :react-native-pdf:compileDebugLibraryResources UP-TO-DATE
+> Task :react-native-blob-util:extractDeepLinksDebug UP-TO-DATE
+> Task :expo-dev-launcher:processDebugManifest UP-TO-DATE
+> Task :react-native-safe-area-context:compileDebugLibraryResources UP-TO-DATE
+> Task :expo-updates-interface:parseDebugLocalResources UP-TO-DATE
+> Task :react-native-blob-util:processDebugManifest UP-TO-DATE
+> Task :expo-barcode-scanner:parseDebugLocalResources UP-TO-DATE
+> Task :expo-image-loader:parseDebugLocalResources UP-TO-DATE
+> Task :react-native-async-storage_async-storage:parseDebugLocalResources UP-TO-DATE
+> Task :react-native-gesture-handler:parseDebugLocalResources UP-TO-DATE
+> Task :expo-manifests:parseDebugLocalResources UP-TO-DATE
+> Task :react-native-pdf:parseDebugLocalResources UP-TO-DATE
+> Task :expo-dev-menu:compileDebugLibraryResources UP-TO-DATE
+> Task :expo-updates-interface:generateDebugRFile UP-TO-DATE
+> Task :react-native-screens:compileDebugLibraryResources UP-TO-DATE
+> Task :react-native-gesture-handler:generateDebugRFile UP-TO-DATE
+> Task :expo-modules-core:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :react-native-safe-area-context:parseDebugLocalResources UP-TO-DATE
+> Task :expo-dev-menu-interface:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :expo-image-loader:generateDebugRFile UP-TO-DATE
+> Task :expo-modules-core:generateDebugBuildConfig UP-TO-DATE
+> Task :expo-manifests:generateDebugRFile UP-TO-DATE
+> Task :expo-dev-client:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :react-native-pdf:generateDebugRFile UP-TO-DATE
+> Task :expo-manifests:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :expo-dev-menu-interface:generateDebugBuildConfig UP-TO-DATE
+> Task :react-native-async-storage_async-storage:generateDebugRFile UP-TO-DATE
+> Task :expo-barcode-scanner:generateDebugRFile UP-TO-DATE
+> Task :expo-updates-interface:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :expo-dev-menu-interface:javaPreCompileDebug UP-TO-DATE
+> Task :expo-barcode-scanner:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :expo-dev-launcher:compileDebugLibraryResources UP-TO-DATE
+> Task :expo-manifests:generateDebugBuildConfig UP-TO-DATE
+> Task :react-native-blob-util:compileDebugLibraryResources UP-TO-DATE
+> Task :react-native-screens:parseDebugLocalResources UP-TO-DATE
+> Task :react-native-safe-area-context:generateDebugRFile UP-TO-DATE
+> Task :react-native-blob-util:parseDebugLocalResources UP-TO-DATE
+> Task :expo-dev-launcher:parseDebugLocalResources UP-TO-DATE
+> Task :expo-manifests:javaPreCompileDebug UP-TO-DATE
+> Task :expo-image-loader:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :expo-json-utils:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :expo-barcode-scanner:generateDebugBuildConfig UP-TO-DATE
+> Task :expo-updates-interface:generateDebugBuildConfig UP-TO-DATE
+> Task :react-native-pdf:generateDebugBuildConfig UP-TO-DATE
+> Task :expo-updates-interface:javaPreCompileDebug UP-TO-DATE
+> Task :expo-barcode-scanner:javaPreCompileDebug UP-TO-DATE
+> Task :react-native-gesture-handler:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :expo-json-utils:generateDebugBuildConfig UP-TO-DATE
+> Task :expo-json-utils:javaPreCompileDebug UP-TO-DATE
+> Task :react-native-gesture-handler:generateDebugBuildConfig UP-TO-DATE
+> Task :expo-dev-menu-interface:mergeDebugShaders UP-TO-DATE
+> Task :expo-dev-menu-interface:compileDebugShaders NO-SOURCE
+> Task :expo-dev-menu-interface:generateDebugAssets UP-TO-DATE
+> Task :react-native-pdf:javaPreCompileDebug UP-TO-DATE
+> Task :expo-image-loader:generateDebugBuildConfig UP-TO-DATE
+> Task :expo-dev-menu-interface:mergeDebugAssets UP-TO-DATE
+> Task :react-native-safe-area-context:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :expo-barcode-scanner:mergeDebugShaders UP-TO-DATE
+> Task :expo-dev-launcher:generateDebugRFile UP-TO-DATE
+> Task :expo-barcode-scanner:compileDebugShaders NO-SOURCE
+> Task :expo-image-loader:javaPreCompileDebug UP-TO-DATE
+> Task :expo-image-loader:mergeDebugShaders UP-TO-DATE
+> Task :expo-json-utils:mergeDebugShaders UP-TO-DATE
+> Task :expo-barcode-scanner:generateDebugAssets UP-TO-DATE
+> Task :expo-image-loader:compileDebugShaders NO-SOURCE
+> Task :expo-dev-launcher:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :expo-json-utils:compileDebugShaders NO-SOURCE
+> Task :expo-image-loader:generateDebugAssets UP-TO-DATE
+> Task :expo-json-utils:generateDebugAssets UP-TO-DATE
+> Task :expo-dev-client:dataBindingMergeDependencyArtifactsDebug UP-TO-DATE
+> Task :react-native-gesture-handler:javaPreCompileDebug FROM-CACHE
+> Task :expo-barcode-scanner:mergeDebugAssets UP-TO-DATE
+> Task :react-native-blob-util:generateDebugRFile UP-TO-DATE
+> Task :expo-image-loader:mergeDebugAssets UP-TO-DATE
+> Task :expo-json-utils:mergeDebugAssets UP-TO-DATE
+> Task :react-native-safe-area-context:generateDebugBuildConfig UP-TO-DATE
+> Task :expo-manifests:mergeDebugShaders UP-TO-DATE
+> Task :expo-updates-interface:mergeDebugShaders UP-TO-DATE
+> Task :expo-updates-interface:compileDebugShaders NO-SOURCE
+> Task :expo-updates-interface:generateDebugAssets UP-TO-DATE
+> Task :expo-updates-interface:mergeDebugAssets UP-TO-DATE
+> Task :expo-dev-client:dataBindingGenBaseClassesDebug UP-TO-DATE
+> Task :expo-barcode-scanner:mergeDebugJniLibFolders UP-TO-DATE
+> Task :expo-barcode-scanner:mergeDebugNativeLibs NO-SOURCE
+> Task :expo-dev-client:generateDebugBuildConfig UP-TO-DATE
+> Task :expo-barcode-scanner:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :expo-manifests:compileDebugShaders NO-SOURCE
+> Task :react-native-blob-util:generateDebugBuildConfig UP-TO-DATE
+> Task :react-native-blob-util:javaPreCompileDebug UP-TO-DATE
+> Task :expo-dev-menu-interface:mergeDebugJniLibFolders UP-TO-DATE
+> Task :expo-dev-client:javaPreCompileDebug UP-TO-DATE
+> Task :expo-dev-client:mergeDebugShaders UP-TO-DATE
+> Task :react-native-gesture-handler:mergeDebugShaders
+> Task :expo-image-loader:mergeDebugJniLibFolders UP-TO-DATE
+> Task :expo-dev-client:compileDebugShaders NO-SOURCE
+> Task :expo-dev-client:generateDebugAssets UP-TO-DATE
+> Task :react-native-gesture-handler:compileDebugShaders NO-SOURCE
+> Task :react-native-gesture-handler:generateDebugAssets UP-TO-DATE
+> Task :expo-manifests:generateDebugAssets UP-TO-DATE
+> Task :expo-dev-client:mergeDebugAssets UP-TO-DATE
+> Task :expo-dev-menu-interface:mergeDebugNativeLibs NO-SOURCE
+> Task :expo-dev-menu:parseDebugLocalResources FROM-CACHE
+> Task :expo-dev-client:mergeDebugJniLibFolders UP-TO-DATE
+> Task :expo:packageDebugResources FROM-CACHE
+> Task :expo-dev-client:mergeDebugNativeLibs NO-SOURCE
+> Task :expo-dev-client:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :expo-json-utils:mergeDebugJniLibFolders UP-TO-DATE
+> Task :expo-json-utils:mergeDebugNativeLibs NO-SOURCE
+> Task :react-native-screens:generateDebugRFile FROM-CACHE
+> Task :expo-image-loader:mergeDebugNativeLibs NO-SOURCE
+> Task :expo-manifests:mergeDebugAssets UP-TO-DATE
+> Task :react-native-async-storage_async-storage:generateDebugBuildConfig
+> Task :expo-json-utils:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :expo-image-loader:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :expo-updates-interface:mergeDebugJniLibFolders UP-TO-DATE
+> Task :expo-manifests:mergeDebugJniLibFolders UP-TO-DATE
+> Task :expo-updates-interface:mergeDebugNativeLibs NO-SOURCE
+> Task :expo:extractDeepLinksDebug FROM-CACHE
+> Task :expo-updates-interface:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :react-native-screens:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :expo-dev-menu-interface:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :expo-manifests:mergeDebugNativeLibs NO-SOURCE
+> Task :expo-manifests:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :react-native-gesture-handler:mergeDebugAssets
+> Task :expo-dev-menu:generateDebugRFile FROM-CACHE
+> Task :expo-dev-menu:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :expo-dev-launcher:dataBindingMergeDependencyArtifactsDebug UP-TO-DATE
+> Task :expo-dev-menu:generateDebugBuildConfig FROM-CACHE
+> Task :react-native-gesture-handler:mergeDebugJniLibFolders
+> Task :expo:processDebugManifest FROM-CACHE
+> Task :react-native-gesture-handler:mergeDebugNativeLibs NO-SOURCE
+> Task :react-native-async-storage_async-storage:javaPreCompileDebug FROM-CACHE
+> Task :react-native-screens:generateDebugBuildConfig
+> Task :react-native-gesture-handler:copyDebugJniLibsProjectOnly
+> Task :expo:compileDebugLibraryResources FROM-CACHE
+> Task :react-native-blob-util:compileDebugJavaWithJavac UP-TO-DATE
+> Task :expo-dev-menu:javaPreCompileDebug FROM-CACHE
+> Task :expo:parseDebugLocalResources FROM-CACHE
+> Task :react-native-blob-util:mergeDebugShaders
+> Task :react-native-blob-util:compileDebugShaders NO-SOURCE
+> Task :react-native-blob-util:generateDebugAssets UP-TO-DATE
+> Task :expo:generateDebugRFile FROM-CACHE
+> Task :expo:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :expo-dev-menu:mergeDebugShaders
+> Task :expo-dev-menu:compileDebugShaders NO-SOURCE
+> Task :expo-dev-menu:generateDebugAssets UP-TO-DATE
+> Task :react-native-blob-util:mergeDebugAssets
+> Task :expo:generateDebugBuildConfig FROM-CACHE
+> Task :expo:javaPreCompileDebug FROM-CACHE
+> Task :expo:mergeDebugShaders
+> Task :react-native-blob-util:processDebugJavaRes NO-SOURCE
+> Task :react-native-blob-util:mergeDebugJniLibFolders
+> Task :react-native-blob-util:mergeDebugNativeLibs NO-SOURCE
+> Task :react-native-blob-util:copyDebugJniLibsProjectOnly
+> Task :react-native-blob-util:bundleLibCompileToJarDebug
+> Task :expo:compileDebugShaders NO-SOURCE
+> Task :expo:generateDebugAssets UP-TO-DATE
+> Task :expo-dev-menu:mergeDebugAssets
+> Task :expo:mergeDebugAssets
+> Task :expo-dev-menu:mergeDebugJniLibFolders
+> Task :expo-dev-menu:mergeDebugNativeLibs NO-SOURCE
+> Task :expo-dev-menu:copyDebugJniLibsProjectOnly
+> Task :expo:mergeDebugJniLibFolders
+> Task :expo:mergeDebugNativeLibs NO-SOURCE
+> Task :expo-dev-launcher:dataBindingGenBaseClassesDebug FROM-CACHE
+> Task :react-native-safe-area-context:javaPreCompileDebug FROM-CACHE
+> Task :expo-dev-launcher:generateDebugBuildConfig UP-TO-DATE
+> Task :react-native-blob-util:bundleLibRuntimeToJarDebug
+> Task :expo-dev-launcher:checkApolloVersions
+> Task :expo:copyDebugJniLibsProjectOnly
+> Task :react-native-safe-area-context:mergeDebugShaders
+> Task :react-native-safe-area-context:compileDebugShaders NO-SOURCE
+> Task :react-native-safe-area-context:generateDebugAssets UP-TO-DATE
+> Task :expo-dev-launcher:generateServiceApolloOptions FROM-CACHE
+> Task :react-native-safe-area-context:mergeDebugAssets
+> Task :react-native-safe-area-context:mergeDebugJniLibFolders
+> Task :react-native-safe-area-context:mergeDebugNativeLibs NO-SOURCE
+> Task :react-native-safe-area-context:copyDebugJniLibsProjectOnly
+> Task :app:generateAutolinkingPackageList UP-TO-DATE
+> Task :app:generateCodegenSchemaFromJavaScript SKIPPED
+> Task :app:generateCodegenArtifactsFromSchema SKIPPED
+> Task :app:generateReactNativeEntryPoint UP-TO-DATE
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :app:generateDebugBuildConfig UP-TO-DATE
+> Task :app:generateDebugResValues FROM-CACHE
+> Task :app:generateDebugResources FROM-CACHE
+> Task :expo-dev-launcher:generateServiceApolloSources FROM-CACHE
+> Task :expo-dev-launcher:javaPreCompileDebug FROM-CACHE
+> Task :expo-dev-launcher:mergeDebugShaders
+> Task :expo-dev-launcher:compileDebugShaders NO-SOURCE
+> Task :expo-dev-launcher:generateDebugAssets UP-TO-DATE
+> Task :expo-dev-launcher:mergeDebugAssets
+> Task :expo-dev-launcher:mergeDebugJniLibFolders
+> Task :expo-dev-launcher:mergeDebugNativeLibs NO-SOURCE
+> Task :expo-dev-launcher:copyDebugJniLibsProjectOnly
+> Task :app:packageDebugResources FROM-CACHE
+> Task :app:parseDebugLocalResources FROM-CACHE
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:extractDeepLinksDebug FROM-CACHE
+> Task :app:javaPreCompileDebug FROM-CACHE
+> Task :app:mergeDebugShaders
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:desugarDebugFileDependencies FROM-CACHE
+> Task :react-native-reanimated:assertMinimalReactNativeVersionTask
+> Task :react-native-reanimated:assertNewArchitectureEnabledTask FAILED
+> Task :react-native-worklets:assertMinimalReactNativeVersionTask
+> Task :app:checkDebugDuplicateClasses
+> Task :expo-constants:createExpoConfig
+
+> Task :react-native-pdf:compileDebugJavaWithJavac
+Note: D:\Apps\Inv\EscanerCodigos\node_modules\react-native-pdf\android\src\main\java\org\wonday\pdf\RNPDFPackage.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :react-native-async-storage_async-storage:compileDebugJavaWithJavac
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: D:\Apps\Inv\EscanerCodigos\node_modules\@react-native-async-storage\async-storage\android\src\javaPackage\java\com\reactnativecommunity\asyncstorage\AsyncStoragePackage.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+> Task :react-native-safe-area-context:compileDebugKotlin
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-safe-area-context/android/src/main/java/com/th3rdwave/safeareacontext/SafeAreaView.kt:59:23 'val uiImplementation: UIImplementation!' is deprecated. Deprecated in Java.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-safe-area-context/android/src/paper/java/com/th3rdwave/safeareacontext/InsetsChangeEvent.kt:19:16 This declaration overrides a deprecated member but is not marked as deprecated itself. Add the '@Deprecated' annotation or suppress the diagnostic.
+
+> Task :react-native-screens:compileDebugKotlin
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/RNScreensPackage.kt:56:9 The corresponding parameter in the supertype 'BaseReactPackage' is named 'name'. This may cause problems when calling this function with named arguments.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/RNScreensPackage.kt:57:9 The corresponding parameter in the supertype 'BaseReactPackage' is named 'reactContext'. This may cause problems when calling this function with named arguments.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/RNScreensPackage.kt:70:17 'constructor(name: String, className: String, canOverrideExistingModule: Boolean, needsEagerInit: Boolean, hasConstants: Boolean, isCxxModule: Boolean, isTurboModule: Boolean): ReactModuleInfo' is deprecated. This constructor is deprecated and will be removed in the future. Use ReactModuleInfo(String, String, boolean, boolean, boolean, boolean)].
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/Screen.kt:48:77 Unchecked cast of '(CoordinatorLayout.Behavior<View!>?..CoordinatorLayout.Behavior<*>?)' to 'BottomSheetBehavior<Screen>'.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/Screen.kt:383:36 'fun setTranslucent(screen: Screen, activity: Activity?, context: ReactContext?): Unit' is deprecated. For apps targeting SDK 35 or above this prop has no effect because edge-to-edge is enabled by default and the status bar is always translucent.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/Screen.kt:402:36 'fun setColor(screen: Screen, activity: Activity?, context: ReactContext?): Unit' is deprecated. For apps targeting SDK 35 or above this prop has no effect because edge-to-edge is enabled by default and the status bar is always translucent.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/Screen.kt:420:36 'fun setNavigationBarColor(screen: Screen, activity: Activity?): Unit' is deprecated. For all apps targeting Android SDK 35 or above edge-to-edge is enabled by default.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/Screen.kt:437:36 'fun setNavigationBarTranslucent(screen: Screen, activity: Activity?): Unit' is deprecated. For all apps targeting Android SDK 35 or above edge-to-edge is enabled by default.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenStackFragment.kt:217:31 'var targetElevation: Float' is deprecated. Deprecated in Java.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenStackFragment.kt:220:13 'fun setHasOptionsMenu(p0: Boolean): Unit' is deprecated. Deprecated in Java.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenStackFragment.kt:397:18 This declaration overrides a deprecated member but is not marked as deprecated itself. Add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenStackFragment.kt:404:22 'fun onPrepareOptionsMenu(p0: Menu): Unit' is deprecated. Deprecated in Java.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenStackFragment.kt:407:18 This declaration overrides a deprecated member but is not marked as deprecated itself. Add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenStackFragment.kt:412:22 'fun onCreateOptionsMenu(p0: Menu, p1: MenuInflater): Unit' is deprecated. Deprecated in Java.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenStackHeaderConfig.kt:435:18 'val reactNativeHost: ReactNativeHost' is deprecated. You should not use ReactNativeHost directly in the New Architecture. Use ReactHost instead.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenViewManager.kt:203:14 'var statusBarColor: Int?' is deprecated. For apps targeting SDK 35 or above this prop has no effect because edge-to-edge is enabled by default and the status bar is always translucent.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenViewManager.kt:220:14 'var isStatusBarTranslucent: Boolean?' is deprecated. For apps targeting SDK 35 or above this prop has no effect because edge-to-edge is enabled by default and the status bar is always translucent.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenViewManager.kt:237:14 'var navigationBarColor: Int?' is deprecated. For all apps targeting Android SDK 35 or above edge-to-edge is enabled by default.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenViewManager.kt:246:14 'var isNavigationBarTranslucent: Boolean?' is deprecated. For all apps targeting Android SDK 35 or above edge-to-edge is enabled by default.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenWindowTraits.kt:55:42 'fun replaceSystemWindowInsets(p0: Int, p1: Int, p2: Int, p3: Int): WindowInsetsCompat' is deprecated. Deprecated in Java.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenWindowTraits.kt:56:39 'val systemWindowInsetLeft: Int' is deprecated. Deprecated in Java.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenWindowTraits.kt:58:39 'val systemWindowInsetRight: Int' is deprecated. Deprecated in Java.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenWindowTraits.kt:59:39 'val systemWindowInsetBottom: Int' is deprecated. Deprecated in Java.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenWindowTraits.kt:102:53 'var statusBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenWindowTraits.kt:106:37 'var statusBarColor: Int?' is deprecated. For apps targeting SDK 35 or above this prop has no effect because edge-to-edge is enabled by default and the status bar is always translucent.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenWindowTraits.kt:113:48 'var statusBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenWindowTraits.kt:116:32 'var statusBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenWindowTraits.kt:162:49 'var isStatusBarTranslucent: Boolean?' is deprecated. For apps targeting SDK 35 or above this prop has no effect because edge-to-edge is enabled by default and the status bar is always translucent.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenWindowTraits.kt:218:43 'var navigationBarColor: Int?' is deprecated. For all apps targeting Android SDK 35 or above edge-to-edge is enabled by default.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenWindowTraits.kt:218:72 'var navigationBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenWindowTraits.kt:224:16 'var navigationBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenWindowTraits.kt:241:55 'var isNavigationBarTranslucent: Boolean?' is deprecated. For all apps targeting Android SDK 35 or above edge-to-edge is enabled by default.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenWindowTraits.kt:283:13 'fun setColor(screen: Screen, activity: Activity?, context: ReactContext?): Unit' is deprecated. For apps targeting SDK 35 or above this prop has no effect because edge-to-edge is enabled by default and the status bar is always translucent.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenWindowTraits.kt:285:13 'fun setTranslucent(screen: Screen, activity: Activity?, context: ReactContext?): Unit' is deprecated. For apps targeting SDK 35 or above this prop has no effect because edge-to-edge is enabled by default and the status bar is always translucent.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenWindowTraits.kt:289:13 'fun setNavigationBarColor(screen: Screen, activity: Activity?): Unit' is deprecated. For all apps targeting Android SDK 35 or above edge-to-edge is enabled by default.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenWindowTraits.kt:290:13 'fun setNavigationBarTranslucent(screen: Screen, activity: Activity?): Unit' is deprecated. For all apps targeting Android SDK 35 or above edge-to-edge is enabled by default.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenWindowTraits.kt:354:42 'var statusBarColor: Int?' is deprecated. For apps targeting SDK 35 or above this prop has no effect because edge-to-edge is enabled by default and the status bar is always translucent.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenWindowTraits.kt:356:48 'var isStatusBarTranslucent: Boolean?' is deprecated. For apps targeting SDK 35 or above this prop has no effect because edge-to-edge is enabled by default and the status bar is always translucent.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenWindowTraits.kt:359:57 'var navigationBarColor: Int?' is deprecated. For all apps targeting Android SDK 35 or above edge-to-edge is enabled by default.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenWindowTraits.kt:360:63 'var isNavigationBarTranslucent: Boolean?' is deprecated. For all apps targeting Android SDK 35 or above edge-to-edge is enabled by default.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/bottomsheet/BottomSheetDialogRootView.kt:7:8 'object ReactFeatureFlags : Any' is deprecated. Use com.facebook.react.internal.featureflags.ReactNativeFeatureFlags instead.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/bottomsheet/BottomSheetDialogRootView.kt:25:13 'object ReactFeatureFlags : Any' is deprecated. Use com.facebook.react.internal.featureflags.ReactNativeFeatureFlags instead.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/bottomsheet/BottomSheetDialogRootView.kt:32:9 The corresponding parameter in the supertype 'ReactViewGroup' is named 'left'. This may cause problems when calling this function with named arguments.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/bottomsheet/BottomSheetDialogRootView.kt:33:9 The corresponding parameter in the supertype 'ReactViewGroup' is named 'top'. This may cause problems when calling this function with named arguments.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/bottomsheet/BottomSheetDialogRootView.kt:34:9 The corresponding parameter in the supertype 'ReactViewGroup' is named 'right'. This may cause problems when calling this function with named arguments.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/bottomsheet/BottomSheetDialogRootView.kt:35:9 The corresponding parameter in the supertype 'ReactViewGroup' is named 'bottom'. This may cause problems when calling this function with named arguments.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/bottomsheet/BottomSheetDialogRootView.kt:71:9 The corresponding parameter in the supertype 'RootView' is named 'childView'. This may cause problems when calling this function with named arguments.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/bottomsheet/BottomSheetDialogRootView.kt:72:9 The corresponding parameter in the supertype 'RootView' is named 'ev'. This may cause problems when calling this function with named arguments.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/bottomsheet/BottomSheetDialogRootView.kt:79:46 The corresponding parameter in the supertype 'RootView' is named 'ev'. This may cause problems when calling this function with named arguments.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/bottomsheet/BottomSheetDialogRootView.kt:83:9 The corresponding parameter in the supertype 'RootView' is named 'childView'. This may cause problems when calling this function with named arguments.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/bottomsheet/BottomSheetDialogRootView.kt:84:9 The corresponding parameter in the supertype 'RootView' is named 'ev'. This may cause problems when calling this function with named arguments.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/bottomsheet/BottomSheetDialogRootView.kt:95:34 The corresponding parameter in the supertype 'RootView' is named 't'. This may cause problems when calling this function with named arguments.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/bottomsheet/DimmingView.kt:63:9 The corresponding parameter in the supertype 'ReactCompoundView' is named 'touchX'. This may cause problems when calling this function with named arguments.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/bottomsheet/DimmingView.kt:64:9 The corresponding parameter in the supertype 'ReactCompoundView' is named 'touchY'. This may cause problems when calling this function with named arguments.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/bottomsheet/DimmingView.kt:68:9 The corresponding parameter in the supertype 'ReactCompoundViewGroup' is named 'touchX'. This may cause problems when calling this function with named arguments.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/bottomsheet/DimmingView.kt:69:9 The corresponding parameter in the supertype 'ReactCompoundViewGroup' is named 'touchY'. This may cause problems when calling this function with named arguments.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/gamma/tabs/TabsHostViewManager.kt:37:9 The corresponding parameter in the supertype 'TabsHostViewManager' is named 'view'. This may cause problems when calling this function with named arguments.
+
+> Task :expo-modules-core:compileDebugKotlin
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-modules-core/android/src/main/java/expo/modules/adapters/react/apploader/RNHeadlessAppLoader.kt:48:87 'val reactNativeHost: ReactNativeHost' is deprecated. You should not use ReactNativeHost directly in the New Architecture. Use ReactHost instead.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-modules-core/android/src/main/java/expo/modules/adapters/react/apploader/RNHeadlessAppLoader.kt:91:85 'val reactNativeHost: ReactNativeHost' is deprecated. You should not use ReactNativeHost directly in the New Architecture. Use ReactHost instead.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-modules-core/android/src/main/java/expo/modules/adapters/react/apploader/RNHeadlessAppLoader.kt:120:83 'val reactNativeHost: ReactNativeHost' is deprecated. You should not use ReactNativeHost directly in the New Architecture. Use ReactHost instead.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-modules-core/android/src/main/java/expo/modules/apploader/AppLoaderProvider.kt:34:52 Unchecked cast of 'Class<*>!' to 'Class<out HeadlessAppLoader>'.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-modules-core/android/src/main/java/expo/modules/kotlin/AppContext.kt:30:8 'typealias ErrorManagerModule = JSLoggerModule' is deprecated. Use JSLoggerModule instead.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-modules-core/android/src/main/java/expo/modules/kotlin/AppContext.kt:253:21 'typealias ErrorManagerModule = JSLoggerModule' is deprecated. Use JSLoggerModule instead.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-modules-core/android/src/main/java/expo/modules/kotlin/AppContext.kt:343:21 'val DEFAULT: Int' is deprecated. UIManagerType.DEFAULT will be deleted in the next release of React Native. Use [LEGACY] instead.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-modules-core/android/src/main/java/expo/modules/kotlin/defaultmodules/NativeModulesProxyModule.kt:16:5 'fun Constants(legacyConstantsProvider: () -> Map<String, Any?>): Unit' is deprecated. Use `Constant` or `Property` instead.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-modules-core/android/src/main/java/expo/modules/kotlin/jni/PromiseImpl.kt:65:51 'val errorManager: JSLoggerModule?' is deprecated. Use AppContext.jsLogger instead.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-modules-core/android/src/main/java/expo/modules/kotlin/jni/PromiseImpl.kt:69:22 'fun reportExceptionToLogBox(codedException: CodedException): Unit' is deprecated. Use appContext.jsLogger.error(...) instead.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-modules-core/android/src/main/java/expo/modules/kotlin/views/ViewDefinitionBuilder.kt:464:16 'val errorManager: JSLoggerModule?' is deprecated. Use AppContext.jsLogger instead.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-modules-core/android/src/main/java/expo/modules/kotlin/views/ViewDefinitionBuilder.kt:464:30 'fun reportExceptionToLogBox(codedException: CodedException): Unit' is deprecated. Use appContext.jsLogger.error(...) instead.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-modules-core/android/src/main/java/expo/modules/kotlin/views/ViewManagerDefinition.kt:41:16 'val errorManager: JSLoggerModule?' is deprecated. Use AppContext.jsLogger instead.
+w: file:///D:/Apps/Inv/EscanerCodigos/node_modules/expo-modules-core/android/src/main/java/expo/modules/kotlin/views/ViewManagerDefinition.kt:41:30 'fun reportExceptionToLogBox(codedException: CodedException): Unit' is deprecated. Use appContext.jsLogger.error(...) instead.
+
+[Incubating] Problems report is available at: file:///D:/Apps/Inv/EscanerCodigos/android/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* Where:
+Build file 'D:\Apps\Inv\EscanerCodigos\node_modules\react-native-reanimated\android\build.gradle' line: 298
+
+* What went wrong:
+Execution failed for task ':react-native-reanimated:assertNewArchitectureEnabledTask'.
+> [Reanimated] Reanimated requires new architecture to be enabled. Please enable it by setting `newArchEnabled` to `true` in `gradle.properties`.
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.14.3/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 27s
+298 actionable tasks: 42 executed, 29 from cache, 227 up-to-date
+Error: D:\Apps\Inv\EscanerCodigos\android\gradlew.bat app:assembleDebug -x lint -x test --configure-on-demand --build-cache -PreactNativeDevServerPort=8081 -PreactNativeArchitectures=x86_64,arm64-v8a exited with non-zero code: 1
+Error: D:\Apps\Inv\EscanerCodigos\android\gradlew.bat app:assembleDebug -x lint -x test --configure-on-demand --build-cache -PreactNativeDevServerPort=8081 -PreactNativeArchitectures=x86_64,arm64-v8a exited with non-zero code: 1
+    at ChildProcess.completionListener (D:\Apps\Inv\EscanerCodigos\node_modules\@expo\spawn-async\src\spawnAsync.ts:67:13)
+    at Object.onceWrapper (node:events:633:26)
+    at ChildProcess.emit (node:events:518:28)
+    at ChildProcess.cp.emit (D:\Apps\Inv\EscanerCodigos\node_modules\cross-spawn\lib\enoent.js:34:29)
+    at maybeClose (node:internal/child_process:1101:16)
+    at Process.ChildProcess._handle.onexit (node:internal/child_process:304:5)
+    ...
+    at spawnAsync (D:\Apps\Inv\EscanerCodigos\node_modules\@expo\spawn-async\src\spawnAsync.ts:28:21)
+    at spawnGradleAsync (D:\Apps\Inv\EscanerCodigos\node_modules\expo\node_modules\@expo\cli\src\start\platforms\android\gradle.ts:134:28)
+    at assembleAsync (D:\Apps\Inv\EscanerCodigos\node_modules\expo\node_modules\@expo\cli\src\start\platforms\android\gradle.ts:83:16)
+    at runAndroidAsync (D:\Apps\Inv\EscanerCodigos\node_modules\expo\node_modules\@expo\cli\src\run\android\runAndroidAsync.ts:62:24)
