@@ -467,7 +467,7 @@ app.get('/api/stats', async (req, res) => {
     }
 });
 
-const PORT = 3000;
+const PORT = 3002;
 app.listen(PORT, '0.0.0.0', () => {
     console.log(`🚀 Servidor de sincronización corriendo en puerto ${PORT} (PostgreSQL)`);
     console.log(`📡 API disponible en http://localhost:${PORT}/api`);

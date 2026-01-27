@@ -1,7 +1,7 @@
 import * as SQLite from 'expo-sqlite';
 
 // URL del servidor - CAMBIAR POR TU IP/DOMINIO
-export const API_URL = 'http://10.29.0.213:3000/api';
+export const API_URL = 'http://181.115.47.107:3002/api';
 
 // Generar UUID v4
 export const generateUUID = (): string => {
@@ -46,8 +46,9 @@ export async function uploadChanges(db: SQLite.SQLiteDatabase): Promise<SyncResu
     };
 
     try {
-        if (!await checkServerConnection()) {
-            throw new Error('No se puede conectar al servidor');
+        const conn = await checkServerConnection();
+        if (!conn.ok) {
+            throw new Error(`No se puede conectar al servidor: ${conn.error}`);
         }
 
         // Obtener última subida
@@ -162,8 +163,9 @@ export async function downloadChanges(db: SQLite.SQLiteDatabase): Promise<SyncRe
     };
 
     try {
-        if (!await checkServerConnection()) {
-            throw new Error('No se puede conectar al servidor');
+        const conn = await checkServerConnection();
+        if (!conn.ok) {
+            throw new Error(`No se puede conectar al servidor: ${conn.error}`);
         }
 
         // Obtener última descarga
@@ -333,20 +335,26 @@ export async function getSyncStatus(db: SQLite.SQLiteDatabase) {
 }
 
 // Verificar conexión con el servidor
-export async function checkServerConnection(): Promise<boolean> {
+export async function checkServerConnection(): Promise<{ ok: boolean; error?: string }> {
     try {
         const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 5000);
+        const timeoutId = setTimeout(() => controller.abort(), 7000); // Aumentado a 7s
 
-        const response = await fetch(`${API_URL}/health`, {
+        console.log('Intentando conectar a:', `${API_URL}/stats`);
+        const response = await fetch(`${API_URL}/stats`, {
             method: 'GET',
             signal: controller.signal
         });
         clearTimeout(timeoutId);
-        return response.ok;
+
+        if (response.ok) return { ok: true };
+        return { ok: false, error: `Servidor respondió con status: ${response.status}` };
     } catch (e: any) {
-        console.log('Error de conexión con:', `${API_URL}/health`);
+        console.log('Error de conexión con:', `${API_URL}/stats`);
         console.log('Detalle error:', e.message);
-        return false;
+        let errorMsg = e.message;
+        if (e.name === 'AbortError') errorMsg = 'Tiempo de espera agotado (7s)';
+        else if (e.message.includes('Network request failed')) errorMsg = 'Fallo de red (¿Servidor caído o IP incorrecta?)';
+        return { ok: false, error: errorMsg };
     }
 }
