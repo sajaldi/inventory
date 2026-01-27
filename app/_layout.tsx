@@ -1,5 +1,8 @@
-import { Stack } from 'expo-router';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Stack, useRouter, useSegments } from 'expo-router';
 import { SQLiteProvider, type SQLiteDatabase } from 'expo-sqlite';
+import { useEffect, useRef, useState } from 'react';
+import { ActivityIndicator, View } from 'react-native';
 
 export default function RootLayout() {
   return (
@@ -8,10 +11,57 @@ export default function RootLayout() {
       onInit={migrateDbIfNeeded}
       onError={(err) => console.log('Error DB:', err)}
     >
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-      </Stack>
+      <RootNavigator />
     </SQLiteProvider>
+  );
+}
+
+function RootNavigator() {
+  const [isFirstLaunch, setIsFirstLaunch] = useState<boolean | null>(null);
+  const router = useRouter();
+  const segments = useSegments();
+  const navigationAttempted = useRef(false);
+
+  useEffect(() => {
+    async function checkFirstLaunch() {
+      try {
+        const alreadyLaunched = await AsyncStorage.getItem('alreadyLaunched');
+        setIsFirstLaunch(alreadyLaunched === null);
+      } catch (e) {
+        console.log('Error checking first launch:', e);
+        setIsFirstLaunch(false);
+      }
+    }
+    checkFirstLaunch();
+  }, []);
+
+  useEffect(() => {
+    if (isFirstLaunch === null || navigationAttempted.current) return;
+
+    const inOnboarding = String(segments[0]) === 'onboarding';
+
+    if (isFirstLaunch && !inOnboarding) {
+      navigationAttempted.current = true;
+      router.replace('/onboarding' as any);
+    } else if (!isFirstLaunch && inOnboarding) {
+      navigationAttempted.current = true;
+      router.replace('/(tabs)');
+    }
+  }, [isFirstLaunch, segments]);
+
+  if (isFirstLaunch === null) {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'white' }}>
+        <ActivityIndicator size="large" color="#4CAF50" />
+      </View>
+    );
+  }
+
+  return (
+    <Stack>
+      <Stack.Screen name="onboarding" options={{ headerShown: false }} />
+      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+    </Stack>
   );
 }
 
@@ -29,7 +79,7 @@ async function migrateDbIfNeeded(db: SQLiteDatabase) {
 
   while (attempt < MAX_RETRIES) {
     try {
-      const DATABASE_VERSION = 10; // Versión 10: columna deleted
+      const DATABASE_VERSION = 11; // Versión 11: Campo modificado
 
       let result = await db.getFirstAsync<{ user_version: number }>('PRAGMA user_version');
       let currentDbVersion = result ? result.user_version : 0;
@@ -460,8 +510,29 @@ async function migrateDbIfNeeded(db: SQLiteDatabase) {
         console.log('Error verifying serie column:', e);
       }
 
-      await db.execAsync(`PRAGMA user_version = 10`);
-      console.log('--- Base de datos actualizada a versión 10 (Verificada) ---');
+      // Migración v10 -> v11: Añadir columna modificado para control de cambios explícito
+      if (currentDbVersion === 10) {
+        console.log('--- Migrando a v11: Añadiendo control de cambios (modificado) ---');
+        try {
+          await db.execAsync(`ALTER TABLE activos ADD COLUMN modificado INTEGER DEFAULT 0;`);
+          await db.execAsync(`UPDATE activos SET modificado = 1 WHERE updated_at >= datetime('now', '-1 day');`); // Mark recently updated as dirty just in case
+        } catch (e) {
+          console.log('Error añadiendo modificado a activos:', e);
+        }
+
+        try {
+          await db.execAsync(`ALTER TABLE auditorias ADD COLUMN modificado INTEGER DEFAULT 0;`);
+          await db.execAsync(`UPDATE auditorias SET modificado = 1 WHERE updated_at >= datetime('now', '-1 day');`);
+        } catch (e) {
+          console.log('Error añadiendo modificado a auditorias:', e);
+        }
+
+        // Also enable for Categorias if strictly needed, but let's focus on Activos/Auditorias first
+        currentDbVersion = 11;
+      }
+
+      await db.execAsync(`PRAGMA user_version = 11`);
+      console.log('--- Base de datos actualizada a versión 11 (Verificada) ---');
       console.log('--- Migración completada ---');
       break; // Success
 

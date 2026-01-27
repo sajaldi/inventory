@@ -3,6 +3,8 @@ const cors = require('cors');
 const { Pool } = require('pg');
 const { v4: uuidv4 } = require('uuid');
 const path = require('path');
+const Tesseract = require('tesseract.js');
+const fs = require('fs');
 
 const app = express();
 app.use(cors());
@@ -15,8 +17,8 @@ const pool = new Pool({
     host: '181.115.47.107',
     database: 'db',
     password: 'PasswordRoot07',
-    port: 5432,
-    ssl: { rejectUnauthorized: false } // Añadir SSL si es requerido por el servidor remoto, usualmente necesario. Lo dejo permisivo.
+    port: 5432
+    // ssl: { rejectUnauthorized: false } // Deshabilitado, el servidor no soporta SSL
 });
 
 // Test de conexión
@@ -191,6 +193,8 @@ app.get('/api/health', (req, res) => {
 app.get('/api/activos', async (req, res) => {
     try {
         const { since } = req.query;
+        console.log(`📡 GET /api/activos - Request received. Since: ${since || 'ALL'}`);
+
         let text = 'SELECT * FROM activos WHERE deleted = 0';
         let params = [];
 
@@ -202,6 +206,8 @@ app.get('/api/activos', async (req, res) => {
         text += ' ORDER BY updated_at DESC';
 
         const { rows } = await query(text, params);
+        console.log(`   ✅ Found ${rows.length} activos modified/created after ${since}`);
+
         res.json({
             success: true,
             data: rows,
@@ -215,11 +221,13 @@ app.get('/api/activos', async (req, res) => {
 
 app.post('/api/activos/sync', async (req, res) => {
     const { activos } = req.body;
+    console.log(`📥 POST /api/activos/sync - Received ${activos?.length || 0} activos to sync`);
+
     if (!activos || !Array.isArray(activos)) {
         return res.status(400).json({ success: false, error: 'Se requiere un array de activos' });
     }
 
-    const results = { inserted: 0, updated: 0, conflicts: [] };
+    const results = { inserted: 0, updated: 0, conflicts: [], errors: [] };
 
     // Usar un cliente dedicado para transacción
     const client = await pool.connect();
@@ -232,11 +240,13 @@ app.post('/api/activos/sync', async (req, res) => {
             await query(`ALTER TABLE activos ADD COLUMN IF NOT EXISTS serie TEXT`);
         } catch (e) {
             // Ignorar si ya existe o error menor en postgres antiguo
-            console.log('Nota: Intento de agregar columna serie:', e.message);
         }
 
         for (const activo of activos) {
             const { sync_id, codigo, nombre, edificio, nivel, categoria, espacio, updated_at, serie } = activo;
+
+            // Log individual asset processing
+            // console.log(`Processing asset: ${codigo} (${sync_id}) - Client Date: ${updated_at}`);
 
             const resExisting = await client.query('SELECT * FROM activos WHERE sync_id = $1', [sync_id]);
             const existing = resExisting.rows[0];
@@ -248,26 +258,40 @@ app.post('/api/activos/sync', async (req, res) => {
                     [sync_id, codigo, nombre, edificio || null, nivel || null, categoria || null, espacio || null, updated_at || new Date(), serie || null]
                 );
                 results.inserted++;
+                console.log(`   -> Inserted new asset: ${codigo}`);
             } else {
-                const serverUpdatedAt = new Date(existing.updated_at);
-                const clientUpdatedAt = new Date(updated_at);
+                // Comparación de fechas robusta
+                const serverDateStr = existing.updated_at instanceof Date ? existing.updated_at.toISOString() : existing.updated_at;
+                const clientDateStr = updated_at;
 
-                if (clientUpdatedAt >= serverUpdatedAt) {
-                    await client.query(
-                        `UPDATE activos SET
+                const serverTime = new Date(serverDateStr).getTime();
+                const clientTime = new Date(clientDateStr).getTime();
+
+                // Debug date comparison logic
+                // console.log(`   Comparing: Client(${clientTime}) vs Server(${serverTime}) -> Diff: ${clientTime - serverTime}ms`);
+
+                // Permitimos la actualización si la versión del cliente es más nueva O IGUAL (para asegurar convergencia)
+                // O si la diferencia es mínima (mismo segundo)
+                // Prioridad Cliente: Siempre actualizamos si el cliente envía datos (confía en el flag 'modificado' de la app)
+                // if (clientTime >= serverTime) {
+                await client.query(
+                    `UPDATE activos SET
                          codigo = $1, nombre = $2, edificio = $3, nivel = $4, 
                          categoria = $5, espacio = $6, updated_at = $7, deleted = 0, serie = $9
                          WHERE sync_id = $8`,
-                        [codigo, nombre, edificio || null, nivel || null, categoria || null, espacio || null, updated_at, sync_id, serie || null]
-                    );
-                    results.updated++;
-                } else {
-                    results.conflicts.push({ sync_id, reason: 'Server version is newer' });
-                }
+                    [codigo, nombre, edificio || null, nivel || null, categoria || null, espacio || null, updated_at, sync_id, serie || null]
+                );
+                results.updated++;
+                console.log(`   -> Updated asset (Client Priority): ${codigo}`);
+                // } else {
+                //    console.log(`   -> Ignored update for ${codigo}. Server is newer/same. S: ${serverDateStr} C: ${clientDateStr}`);
+                //    results.conflicts.push({ sync_id, reason: 'Server version is newer' });
+                // }
             }
         }
 
         await client.query('COMMIT');
+        console.log(`Sync completed. Inserted: ${results.inserted}, Updated: ${results.updated}, Conflicts: ${results.conflicts.length}`);
         res.json({ success: true, results });
     } catch (error) {
         await client.query('ROLLBACK');
@@ -376,6 +400,49 @@ app.post('/api/auditorias/sync', async (req, res) => {
         res.status(500).json({ success: false, error: error.message });
     } finally {
         client.release();
+    }
+});
+
+// ==================== OCR (OCR.SPACE) ====================
+app.post('/api/ocr', async (req, res) => {
+    try {
+        const { image } = req.body;
+        if (!image) {
+            return res.status(400).json({ success: false, error: 'No image provided' });
+        }
+
+        // Add prefix if missing
+        const base64Image = image.startsWith('data:') ? image : `data:image/jpeg;base64,${image}`;
+
+        console.log('Enviando imagen a OCR.space...');
+
+        // Construct x-www-form-urlencoded body manually to avoid needing 'form-data' package
+        const params = new URLSearchParams();
+        params.append('apikey', 'K84898840688957');
+        params.append('base64Image', base64Image);
+        params.append('language', 'eng'); // or 'spa' if needed, user didn't specify but 'eng' is safer for serial numbers usually
+        params.append('isOverlayRequired', 'false');
+        params.append('scale', 'true'); // Improves OCR for low res
+
+        const response = await fetch('https://api.ocr.space/parse/image', {
+            method: 'POST',
+            body: params
+        });
+
+        const data = await response.json();
+
+        if (data && data.ParsedResults && data.ParsedResults.length > 0) {
+            const text = data.ParsedResults[0].ParsedText.trim();
+            console.log('OCR Result:', text);
+            res.json({ success: true, text: text });
+        } else {
+            console.error('OCR Error:', data);
+            res.json({ success: false, error: 'No text detected or API error', details: data });
+        }
+
+    } catch (error) {
+        console.error('Error en OCR proxy:', error);
+        res.status(500).json({ success: false, error: error.message });
     }
 });
 

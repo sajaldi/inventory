@@ -2,17 +2,18 @@ import { Ionicons } from '@expo/vector-icons';
 import { CameraView } from 'expo-camera';
 import * as DocumentPicker from 'expo-document-picker';
 import { documentDirectory, readAsStringAsync, writeAsStringAsync } from 'expo-file-system/legacy';
+import * as ImageManipulator from 'expo-image-manipulator';
 import { useRouter } from 'expo-router';
 import * as Sharing from 'expo-sharing';
 import { useSQLiteContext } from 'expo-sqlite';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { ActivityIndicator, Alert, FlatList, Modal, SafeAreaView, ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 import { Ubicacion } from '@/app/types';
 import CategorySelector from '@/components/CategorySelector';
 import LocationSelector from '@/components/LocationSelector';
 import { downloadExcelTemplate, exportToExcel, importFromExcel } from '@/utils/excel';
-import { checkServerConnection, generateUUID, getCurrentTimestamp, syncWithServer } from '@/utils/sync';
+import { API_URL, downloadChanges, generateUUID, getCurrentTimestamp, uploadChanges } from '@/utils/sync';
 
 const PAGE_SIZE = 30;
 
@@ -26,6 +27,7 @@ interface Asset {
   espacio: string;
   serie?: string;
   ubicacion_id?: number | null;
+  modificado?: number;
 }
 
 interface FilterOptions {
@@ -44,7 +46,8 @@ export default function AssetsScreen() {
   const [page, setPage] = useState(0);
   const [loading, setLoading] = useState(false);
   const [loadingMore, setLoadingMore] = useState(false);
-  const [syncing, setSyncing] = useState(false);
+  const [isUploading, setIsUploading] = useState(false);
+  const [isDownloading, setIsDownloading] = useState(false);
 
   const [filterOptions, setFilterOptions] = useState<FilterOptions>({ edificios: [], niveles: [], categorias: [], espacios: [] });
 
@@ -57,6 +60,11 @@ export default function AssetsScreen() {
   const [modal, setModal] = useState(false);
   const [cam, setCam] = useState(false);
   const [searchScanner, setSearchScanner] = useState(false);
+  const [serieScanner, setSerieScanner] = useState(false);
+  const [serieOCR, setSerieOCR] = useState(false);
+  const [ocrFlash, setOcrFlash] = useState(false);
+  const [ocrLoading, setOcrLoading] = useState(false);
+  const cameraRef = useRef<CameraView>(null);
   const [selectedAsset, setSelectedAsset] = useState<Asset | null>(null);
   const [detailModal, setDetailModal] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
@@ -71,6 +79,55 @@ export default function AssetsScreen() {
   const [selectedLocation, setSelectedLocation] = useState<Ubicacion | null>(null);
   const [selectedLocationId, setSelectedLocationId] = useState<number | null>(null);
   const [selectedCategoryId, setSelectedCategoryId] = useState<number | null>(null);
+
+  const handleUpload = async () => {
+    setIsUploading(true);
+    try {
+      const result = await uploadChanges(db);
+      if (result.success) {
+        if (result.uploaded.activos > 0 || result.uploaded.auditorias > 0) {
+          Alert.alert(
+            '⬆️ Subida Completada',
+            `Se subieron:\n📦 ${result.uploaded.activos} activos\n📋 ${result.uploaded.auditorias} auditorías`
+          );
+          loadAssets(true);
+        } else {
+          Alert.alert('✅ Todo al día', 'No hay cambios locales pendientes de subir.');
+        }
+      } else {
+        Alert.alert('Error', 'Hubo errores al subir: ' + result.errors.join(', '));
+      }
+    } catch (e: any) {
+      Alert.alert('Error', 'Fallo en la subida: ' + e.message);
+    } finally {
+      setIsUploading(false);
+    }
+  };
+
+  const handleDownload = async () => {
+    setIsDownloading(true);
+    try {
+      const result = await downloadChanges(db);
+      if (result.success) {
+        if (result.downloaded.activos > 0 || result.downloaded.auditorias > 0) {
+          Alert.alert(
+            '⬇️ Descarga Completada',
+            `Se descargaron:\n📦 ${result.downloaded.activos} activos\n📋 ${result.downloaded.auditorias} auditorías`
+          );
+          loadFilterOptions();
+          loadAssets(true);
+        } else {
+          Alert.alert('✅ Todo actualizado', 'No hay datos nuevos para descargar.');
+        }
+      } else {
+        Alert.alert('Error', 'Hubo errores al descargar: ' + result.errors.join(', '));
+      }
+    } catch (e: any) {
+      Alert.alert('Error', 'Fallo en la descarga: ' + e.message);
+    } finally {
+      setIsDownloading(false);
+    }
+  };
 
   const loadFilterOptions = async () => {
     try {
@@ -186,7 +243,7 @@ export default function AssetsScreen() {
       const syncId = generateUUID();
       const updatedAt = getCurrentTimestamp();
       await db.runAsync(
-        'INSERT INTO activos (sync_id, codigo, nombre, edificio, nivel, categoria, espacio, ubicacion_id, updated_at, serie) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+        'INSERT INTO activos (sync_id, codigo, nombre, edificio, nivel, categoria, espacio, ubicacion_id, updated_at, serie, modificado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)',
         [syncId, code.trim(), name.trim(), build.trim(), level.trim(), category.trim(), space.trim(), selectedLocationId, updatedAt, serie.trim()]
       );
       Alert.alert("✅ Guardado", "Activo registrado correctamente");
@@ -208,7 +265,7 @@ export default function AssetsScreen() {
     try {
       const updatedAt = getCurrentTimestamp();
       await db.runAsync(
-        'UPDATE activos SET codigo = ?, nombre = ?, edificio = ?, nivel = ?, categoria = ?, espacio = ?, ubicacion_id = ?, updated_at = ?, serie = ? WHERE id = ?',
+        'UPDATE activos SET codigo = ?, nombre = ?, edificio = ?, nivel = ?, categoria = ?, espacio = ?, ubicacion_id = ?, updated_at = ?, serie = ?, modificado = 1 WHERE id = ?',
         [code.trim(), name.trim(), build.trim(), level.trim(), category.trim(), space.trim(), selectedLocationId, updatedAt, serie.trim(), selectedAsset.id]
       );
       Alert.alert('✅ Actualizado', 'El activo fue modificado correctamente.');
@@ -303,33 +360,74 @@ export default function AssetsScreen() {
     }
   };
 
-  const handleSync = async () => {
-    setSyncing(true);
+  const handleSerieScan = async ({ data }: any) => {
     try {
-      const isConnected = await checkServerConnection();
-      if (!isConnected) {
-        Alert.alert('Sin conexión', 'No se puede conectar al servidor de sincronización.');
-        return;
-      }
-
-      const result = await syncWithServer(db);
-
-      if (result.success) {
-        Alert.alert(
-          '✅ Sincronizado',
-          `Subidos: ${result.uploaded.activos} activos\nDescargados: ${result.downloaded.activos} activos`
-        );
-        loadFilterOptions();
-        loadAssets(true);
-      } else {
-        Alert.alert('Error', result.errors.join('\n') || 'Error desconocido');
-      }
-    } catch (e: any) {
-      Alert.alert('Error', e.message || 'Error de sincronización');
-    } finally {
-      setSyncing(false);
+      // Extraer el código del escaneo
+      const scannedSerie = data.trim();
+      setSerie(scannedSerie);
+      setSerieScanner(false);
+      Alert.alert('✅ Escaneado', `Serie: ${scannedSerie}`);
+    } catch (e) {
+      console.log('Error escaneando serie:', e);
+      setSerieScanner(false);
     }
   };
+
+  const handleSerieOCR = () => {
+    setSerieOCR(true);
+    setOcrFlash(false);
+    setOcrLoading(false);
+  };
+
+  const captureAndOCR = async () => {
+    if (!cameraRef.current) return;
+    setOcrLoading(true);
+
+    try {
+      const photo = await cameraRef.current.takePictureAsync({
+        quality: 0.8,
+      });
+
+      if (photo?.uri) {
+        // Full screen requested
+        console.log(`Original: ${photo.width}x${photo.height}`);
+
+        const manipulated = await ImageManipulator.manipulateAsync(
+          photo.uri,
+          [
+            { resize: { width: 1000 } }
+          ],
+          { base64: true, compress: 0.6, format: ImageManipulator.SaveFormat.JPEG }
+        );
+
+        console.log('Sending full image to OCR...');
+
+        // Enviar al servidor local
+        const response = await fetch(`${API_URL}/ocr`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ image: manipulated.base64 })
+        });
+
+        const data = await response.json();
+
+        if (data.success && data.text) {
+          setSerie(data.text);
+          setSerieOCR(false);
+          Alert.alert("✅ OCR Exitoso", `Texto detectado: ${data.text}`);
+        } else {
+          Alert.alert("OCR Falló", "No se detectó texto. Intenta acercarte más o mejorar la luz.");
+        }
+      }
+    } catch (e) {
+      console.log('Error OCR remoto:', e);
+      Alert.alert("Error", "Fallo al conectar con el servicio de OCR local.");
+    } finally {
+      setOcrLoading(false);
+    }
+  };
+
+
 
   const importCsv = async () => {
     try {
@@ -675,8 +773,8 @@ ACT-005,Silla Ergonómica,Edificio A,Piso 1,Mobiliario,Sala de Juntas,`;
           </TouchableOpacity>
 
           <TouchableOpacity
-            onPress={handleSync}
-            disabled={syncing}
+            onPress={handleUpload}
+            disabled={isUploading || isDownloading}
             style={{
               width: 44, height: 44, borderRadius: 10,
               backgroundColor: 'white',
@@ -684,11 +782,20 @@ ACT-005,Silla Ergonómica,Edificio A,Piso 1,Mobiliario,Sala de Juntas,`;
               borderWidth: 1, borderColor: '#e0e0e0'
             }}
           >
-            {syncing ? (
-              <ActivityIndicator size="small" color="#007AFF" />
-            ) : (
-              <Ionicons name="cloud-upload-outline" size={20} color="#007AFF" />
-            )}
+            {isUploading ? <ActivityIndicator size="small" color="#007AFF" /> : <Ionicons name="cloud-upload-outline" size={20} color="#007AFF" />}
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            onPress={handleDownload}
+            disabled={isUploading || isDownloading}
+            style={{
+              width: 44, height: 44, borderRadius: 10,
+              backgroundColor: 'white',
+              alignItems: 'center', justifyContent: 'center',
+              borderWidth: 1, borderColor: '#e0e0e0'
+            }}
+          >
+            {isDownloading ? <ActivityIndicator size="small" color="#34C759" /> : <Ionicons name="cloud-download-outline" size={20} color="#34C759" />}
           </TouchableOpacity>
 
           <TouchableOpacity
@@ -780,7 +887,13 @@ ACT-005,Silla Ergonómica,Edificio A,Piso 1,Mobiliario,Sala de Juntas,`;
                     )}
                   </View>
                 </View>
-                <Ionicons name="chevron-forward" size={20} color="#ccc" />
+                <View style={{ alignItems: 'center', justifyContent: 'center', paddingLeft: 10 }}>
+                  {item.modificado === 1 ? (
+                    <Ionicons name="cloud-upload-outline" size={24} color="#FF9500" />
+                  ) : (
+                    <Ionicons name="cloud-done-outline" size={24} color="#34C759" />
+                  )}
+                </View>
               </View>
             </TouchableOpacity>
           )}
@@ -955,7 +1068,47 @@ ACT-005,Silla Ergonómica,Edificio A,Piso 1,Mobiliario,Sala de Juntas,`;
                 <TextInput value={name} onChangeText={setName} style={{ backgroundColor: 'white', padding: 12, borderRadius: 8, marginBottom: 12, borderWidth: 1, borderColor: '#ddd' }} />
 
                 <Text style={{ fontSize: 12, color: '#888', marginBottom: 5 }}>SERIE</Text>
-                <TextInput value={serie} onChangeText={setSerie} style={{ backgroundColor: 'white', padding: 12, borderRadius: 8, marginBottom: 12, borderWidth: 1, borderColor: '#ddd' }} />
+                <View style={{ flexDirection: 'row', gap: 8, marginBottom: 12 }}>
+                  <TextInput
+                    value={serie}
+                    onChangeText={setSerie}
+                    placeholder="Número de serie"
+                    style={{
+                      flex: 1,
+                      backgroundColor: 'white',
+                      padding: 12,
+                      borderRadius: 8,
+                      borderWidth: 1,
+                      borderColor: '#ddd'
+                    }}
+                  />
+                  <TouchableOpacity
+                    onPress={() => setSerieScanner(true)}
+                    style={{
+                      backgroundColor: '#007AFF',
+                      padding: 12,
+                      borderRadius: 8,
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      minWidth: 48
+                    }}
+                  >
+                    <Ionicons name="barcode-outline" size={20} color="white" />
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    onPress={handleSerieOCR}
+                    style={{
+                      backgroundColor: '#34C759',
+                      padding: 12,
+                      borderRadius: 8,
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      minWidth: 48
+                    }}
+                  >
+                    <Ionicons name="text-outline" size={20} color="white" />
+                  </TouchableOpacity>
+                </View>
 
                 <Text style={{ fontSize: 12, color: '#888', marginBottom: 5 }}>CATEGORÍA</Text>
                 <CategorySelector
@@ -1036,6 +1189,98 @@ ACT-005,Silla Ergonómica,Edificio A,Piso 1,Mobiliario,Sala de Juntas,`;
           </TouchableOpacity>
         </SafeAreaView>
       </Modal>
+
+      {/* Modal Scanner de Serie (Barcode) */}
+      <Modal visible={serieScanner} animationType="slide">
+        <SafeAreaView style={{ flex: 1, backgroundColor: 'black' }}>
+          <CameraView
+            style={{ flex: 1 }}
+            onBarcodeScanned={handleSerieScan}
+          />
+          <TouchableOpacity
+            onPress={() => setSerieScanner(false)}
+            style={{ position: 'absolute', bottom: 50, alignSelf: 'center', backgroundColor: 'white', paddingHorizontal: 30, paddingVertical: 12, borderRadius: 25 }}
+          >
+            <Text style={{ fontWeight: 'bold' }}>Cancelar</Text>
+          </TouchableOpacity>
+        </SafeAreaView>
+      </Modal>
+
+      {/* Modal Scanner de Serie (OCR) */}
+      <Modal visible={serieOCR} animationType="slide">
+        <SafeAreaView style={{ flex: 1, backgroundColor: 'black' }}>
+          <CameraView
+            ref={cameraRef}
+            style={{ flex: 1 }}
+            enableTorch={ocrFlash}
+          >
+            <View style={{ flex: 1, justifyContent: 'space-between', padding: 20 }}>
+              <View style={{ alignItems: 'flex-end', marginTop: 20 }}>
+                <TouchableOpacity
+                  onPress={() => setOcrFlash(!ocrFlash)}
+                  style={{
+                    width: 50, height: 50,
+                    borderRadius: 25,
+                    backgroundColor: ocrFlash ? '#FFD700' : 'rgba(0, 0, 0, 0.5)',
+                    alignItems: 'center', justifyContent: 'center',
+                    borderWidth: 1, borderColor: 'white'
+                  }}
+                >
+                  <Ionicons name={ocrFlash ? "flash" : "flash-off"} size={24} color={ocrFlash ? "black" : "white"} />
+                </TouchableOpacity>
+              </View>
+
+              <View style={{ alignItems: 'center', marginBottom: 50 }}>
+                <View style={{ borderWidth: 2, borderColor: 'white', width: '80%', height: 100, borderRadius: 10, marginBottom: 20, justifyContent: 'center', alignItems: 'center' }}>
+                  <Text style={{ color: 'rgba(255,255,255,0.7)', fontSize: 12, backgroundColor: 'rgba(0,0,0,0.5)', padding: 4 }}>ZONA OCR</Text>
+                </View>
+                <Text style={{ color: 'white', textAlign: 'center', marginBottom: 20 }}>
+                  {ocrLoading ? "Procesando imagen..." : "Apunta al número de serie"}
+                </Text>
+
+                <TouchableOpacity
+                  onPress={captureAndOCR}
+                  disabled={ocrLoading}
+                  style={{
+                    width: 80, height: 80,
+                    borderRadius: 40,
+                    backgroundColor: ocrLoading ? '#ccc' : 'white',
+                    alignItems: 'center', justifyContent: 'center',
+                    borderWidth: 4, borderColor: '#ccc'
+                  }}
+                >
+                  {ocrLoading ? (
+                    <ActivityIndicator color="#007AFF" />
+                  ) : (
+                    <View style={{ width: 60, height: 60, borderRadius: 30, backgroundColor: 'white', borderWidth: 2, borderColor: 'black' }} />
+                  )}
+                </TouchableOpacity>
+              </View>
+            </View>
+
+            <TouchableOpacity
+              onPress={() => setSerieOCR(false)}
+              style={{ position: 'absolute', top: 40, left: 20, padding: 10, backgroundColor: 'rgba(0,0,0,0.5)', borderRadius: 20 }}
+            >
+              <Ionicons name="close" size={30} color="white" />
+            </TouchableOpacity>
+          </CameraView>
+        </SafeAreaView>
+      </Modal>
+
+      {/* Loading Overlay */}
+      <Modal visible={isUploading || isDownloading} transparent animationType="fade">
+        <View style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.5)', justifyContent: 'center', alignItems: 'center' }}>
+          <View style={{ backgroundColor: 'white', padding: 30, borderRadius: 20, alignItems: 'center', shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.25, shadowRadius: 4, elevation: 5 }}>
+            <ActivityIndicator size="large" color="#007AFF" style={{ marginBottom: 20 }} />
+            <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#333' }}>
+              {isUploading ? "Subiendo datos..." : "Descargando datos..."}
+            </Text>
+            <Text style={{ marginTop: 8, color: '#666' }}>Por favor espere</Text>
+          </View>
+        </View>
+      </Modal>
+
     </SafeAreaView>
   );
 }

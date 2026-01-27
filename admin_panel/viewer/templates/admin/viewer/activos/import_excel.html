@@ -1,0 +1,18 @@
+{% extends "admin/base_site.html" %}
+{% block content %}
+<div style="padding: 20px; background: white; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+    <h1>Importar Activos desde Excel</h1>
+    <p>El archivo debe tener las columnas: codigo, nombre, edificio, nivel, categoria, espacio, serie.</p>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div style="margin: 20px 0;">
+            {{ form.as_p }}
+        </div>
+        <button type="submit" class="button"
+            style="padding: 10px 20px; background: #007bff; color: white; border: none; cursor: pointer; border-radius: 4px;">Subir
+            e Importar</button>
+    </form>
+    <br>
+    <a href="../">Volver a la lista</a>
+</div>
+{% endblock %}
