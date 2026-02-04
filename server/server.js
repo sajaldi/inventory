@@ -13,6 +13,7 @@ app.use(express.json({ limit: '50mb' }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Configuración de PostgreSQL usando variables de entorno
+console.log('🔌 Intentando conectar a PostgreSQL en:', process.env.DB_HOST || 'localhost');
 const pool = new Pool({
     user: process.env.DB_USER || 'postgres',
     host: process.env.DB_HOST || 'localhost',
