@@ -5,20 +5,20 @@ const { v4: uuidv4 } = require('uuid');
 const path = require('path');
 const Tesseract = require('tesseract.js');
 const fs = require('fs');
+require('dotenv').config();
 
 const app = express();
 app.use(cors());
 app.use(express.json({ limit: '50mb' }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Configuración de PostgreSQL
+// Configuración de PostgreSQL usando variables de entorno
 const pool = new Pool({
-    user: 'postgres',
-    host: '181.115.47.107',
-    database: 'db',
-    password: 'PasswordRoot07',
-    port: 5432
-    // ssl: { rejectUnauthorized: false } // Deshabilitado, el servidor no soporta SSL
+    user: process.env.DB_USER || 'postgres',
+    host: process.env.DB_HOST || 'localhost',
+    database: process.env.DB_NAME || 'db',
+    password: process.env.DB_PASSWORD || 'PasswordRoot07',
+    port: process.env.DB_PORT || 5432
 });
 
 // Test de conexión
@@ -467,7 +467,7 @@ app.get('/api/stats', async (req, res) => {
     }
 });
 
-const PORT = 3002;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, '0.0.0.0', () => {
     console.log(`🚀 Servidor de sincronización corriendo en puerto ${PORT} (PostgreSQL)`);
     console.log(`📡 API disponible en http://localhost:${PORT}/api`);
