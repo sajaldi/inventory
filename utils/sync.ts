@@ -1,7 +1,7 @@
 import * as SQLite from 'expo-sqlite';
 
 // URL del servidor - CAMBIAR POR TU IP/DOMINIO
-export const API_URL = 'http://181.115.47.107:3002/api';
+export const API_URL = 'http://181.115.47.107:3001/api';
 
 // Generar UUID v4
 export const generateUUID = (): string => {
