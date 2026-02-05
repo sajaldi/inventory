@@ -214,6 +214,11 @@ app.post('/api/categorias/sync', async (req, res) => {
     }
 });
 
+// Health check
+app.get('/api', (req, res) => {
+    res.json({ status: 'ok', message: 'Inventory API logic is running' });
+});
+
 // Health check with timestamp
 app.get('/api/health', (req, res) => {
     res.json({ status: 'ok', timestamp: new Date().toISOString() });
