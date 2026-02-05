@@ -6,6 +6,10 @@ const path = require('path');
 const Tesseract = require('tesseract.js');
 const fs = require('fs');
 const db = require('./db');
+const multer = require('multer');
+const csv = require('csv-parser');
+
+const upload = multer({ dest: 'uploads/' });
 
 const app = express();
 app.use(cors());
@@ -263,6 +267,77 @@ app.get('/api/activos', async (req, res) => {
         console.error(`❌ Error obteniendo activos:`, error.message);
         res.status(500).json({ success: false, error: error.message });
     }
+});
+
+// ==================== IMPORTACIÓN DE ACTIVOS (CSV) ====================
+
+app.post('/api/activos/import', upload.single('file'), async (req, res) => {
+    if (!req.file) {
+        return res.status(400).json({ success: false, error: 'No se subió ningún archivo' });
+    }
+
+    const results = { inserted: 0, updated: 0, errors: [] };
+    const assetsData = [];
+
+    fs.createReadStream(req.file.path)
+        .pipe(csv())
+        .on('data', (data) => assetsData.push(data))
+        .on('end', async () => {
+            const client = await db.pool.connect();
+            try {
+                await client.query('BEGIN');
+                for (const row of assetsData) {
+                    // Normalize keys (lowercase and remove spaces if necessary)
+                    const codigo = row.codigo || row.CODIGO || row.Código || row.CÓDIGO;
+                    const nombre = row.nombre || row.NOMBRE || row.Nombre;
+
+                    if (!codigo || !nombre) {
+                        results.errors.push(`Fila inválida: falta código o nombre (${JSON.stringify(row)})`);
+                        continue;
+                    }
+
+                    const serie = row.serie || row.SERIE || row.Serie || null;
+                    const edificio = row.edificio || row.EDIFICIO || row.Edificio || null;
+                    const nivel = row.nivel || row.NIVEL || row.Nivel || null;
+                    const categoria = row.categoria || row.CATEGORIA || row.Categoría || row.Carga || null;
+                    const espacio = row.espacio || row.ESPACIO || row.Espacio || null;
+
+                    // Check if exists by codigo
+                    const resExisting = await client.query('SELECT * FROM activos WHERE codigo = $1', [codigo]);
+                    const existing = resExisting.rows[0];
+
+                    if (!existing) {
+                        const sync_id = uuidv4();
+                        await client.query(
+                            `INSERT INTO activos (sync_id, codigo, nombre, edificio, nivel, categoria, espacio, updated_at, deleted, serie)
+                             VALUES ($1, $2, $3, $4, $5, $6, $7, CURRENT_TIMESTAMP, 0, $8)`,
+                            [sync_id, codigo, nombre, edificio, nivel, categoria, espacio, serie]
+                        );
+                        results.inserted++;
+                    } else {
+                        await client.query(
+                            `UPDATE activos SET
+                                 nombre = $1, edificio = $2, nivel = $3, 
+                                 categoria = $4, espacio = $5, updated_at = CURRENT_TIMESTAMP, 
+                                 deleted = 0, serie = $6
+                             WHERE codigo = $7`,
+                            [nombre, edificio, nivel, categoria, espacio, serie, codigo]
+                        );
+                        results.updated++;
+                    }
+                }
+                await client.query('COMMIT');
+                res.json({ success: true, results });
+            } catch (err) {
+                if (client) await client.query('ROLLBACK');
+                console.error('Error durante la importación:', err);
+                res.status(500).json({ success: false, error: err.message });
+            } finally {
+                client.release();
+                // Clean up temp file
+                if (fs.existsSync(req.file.path)) fs.unlinkSync(req.file.path);
+            }
+        });
 });
 
 app.post('/api/activos/sync', async (req, res) => {
