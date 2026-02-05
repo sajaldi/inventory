@@ -1,11 +1,55 @@
-# Ignore all root level directories
-/*/
+# dependencies
+node_modules/
+.pnp
+.pnp.js
 
-# Except the server2 directory
-!/server2/
+# testing
+coverage
 
-# Un-ignore root level files (optional, but usually safer to keep them tracked if they are there)
-!/.gitignore
-!/README.md
-!/docker-compose.yml
-!/Dockerfile
+# next.js
+.next/
+out/
+
+# production
+build/
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# local env files
+.env*.local
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# Expo
+.expo/
+dist/
+web-build/
+expo-env.d.ts
+
+# Native
+.kotlin/
+*.orig.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+
+# Metro
+.metro-health-check*
+
+# generated native folders
+/ios
+/android

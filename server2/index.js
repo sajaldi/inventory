@@ -108,6 +108,38 @@ const initDB = async () => {
     }
 };
 
+// ==================== FRONTEND ENDPOINTS ====================
+
+// Endpoint to get all assets (activos) with pagination for the Web Panel
+app.get('/activos', async (req, res) => {
+    try {
+        const page = parseInt(req.query.page) || 1;
+        const limit = parseInt(req.query.limit) || 50;
+        const offset = (page - 1) * limit;
+
+        // Get total count for pagination metadata
+        const countResult = await query('SELECT COUNT(*) FROM activos WHERE deleted = 0');
+        const totalItems = parseInt(countResult.rows[0].count);
+        const totalPages = Math.ceil(totalItems / limit);
+
+        // Get paginated data
+        const result = await query('SELECT * FROM activos WHERE deleted = 0 ORDER BY id LIMIT $1 OFFSET $2', [limit, offset]);
+
+        res.json({
+            data: result.rows,
+            meta: {
+                totalItems,
+                totalPages,
+                currentPage: page,
+                limit
+            }
+        });
+    } catch (err) {
+        console.error('DATABASE ERROR:', err);
+        res.status(500).json({ error: err.message });
+    }
+});
+
 // ==================== SINCRONIZACIÓN DE CATEGORÍAS ====================
 
 app.get('/api/categorias', async (req, res) => {
