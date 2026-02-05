@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const { v4: uuidv4 } = require('uuid');
@@ -5,7 +6,6 @@ const path = require('path');
 const Tesseract = require('tesseract.js');
 const fs = require('fs');
 const db = require('./db');
-require('dotenv').config();
 
 const app = express();
 app.use(cors());

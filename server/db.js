@@ -1,7 +1,13 @@
 const { Pool } = require('pg');
 
+const connectionString = process.env.DATABASE_URL || `postgres://${process.env.PG_USER}:${process.env.PG_PASSWORD}@${process.env.PG_HOST}:${process.env.PG_PORT}/${process.env.PG_DATABASE}`;
+
+if (!connectionString || connectionString.includes('undefined')) {
+  console.error('❌ ERROR: Database connection string is invalid or missing environment variables.');
+}
+
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL || `postgres://${process.env.PG_USER}:${process.env.PG_PASSWORD}@${process.env.PG_HOST}:${process.env.PG_PORT}/${process.env.PG_DATABASE}`,
+  connectionString: connectionString,
 });
 
 pool.on('connect', () => {
