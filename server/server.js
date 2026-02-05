@@ -215,7 +215,7 @@ app.get('/api/activos', async (req, res) => {
             serverTime: new Date().toISOString()
         });
     } catch (error) {
-        console.error('Error obteniendo activos:', error);
+        console.error(`❌ Error obteniendo activos (Host: ${process.env.DB_HOST || 'localhost'}):`, error.message);
         res.status(500).json({ success: false, error: error.message });
     }
 });
