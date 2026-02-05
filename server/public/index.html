@@ -330,10 +330,18 @@
                 btn.innerHTML = '⌛ Generando...';
                 btn.disabled = true;
 
-                const response = await fetch('/api/activos/export');
+                const response = await fetch('/api/export-activos');
                 if (!response.ok) {
-                    const errorData = await response.json();
-                    throw new Error(errorData.error || 'Error al generar el archivo');
+                    const contentType = response.headers.get('content-type');
+                    let errorMessage = 'Error al generar el archivo';
+
+                    if (contentType && contentType.includes('application/json')) {
+                        const errorData = await response.json();
+                        errorMessage = errorData.error || errorMessage;
+                    } else {
+                        errorMessage = `Error del servidor (${response.status}). Asegúrate de que el backend esté actualizado.`;
+                    }
+                    throw new Error(errorMessage);
                 }
 
                 const blob = await response.blob();

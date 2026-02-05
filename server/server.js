@@ -342,13 +342,17 @@ app.post('/api/activos/import', upload.single('file'), async (req, res) => {
 
 // ==================== EXPORTACIÓN DE ACTIVOS (CSV) ====================
 
-app.get('/api/activos/export', async (req, res) => {
+app.get('/api/export-activos', async (req, res) => {
+    console.log(`📥 GET /api/export-activos - Request received`);
     try {
         const result = await query('SELECT * FROM activos WHERE deleted = 0 ORDER BY id ASC');
         const rows = result.rows;
 
+        console.log(`   📊 Exporting ${rows.length} activos`);
+
         if (rows.length === 0) {
-            return res.status(404).json({ success: false, error: 'No hay activos para exportar' });
+            console.warn(`   ⚠️ No activos found to export`);
+            return res.status(200).send('codigo,nombre,serie,edificio,nivel,categoria,espacio,sync_id,updated_at\n'); // Return empty CSV template
         }
 
         // Define columns
@@ -374,11 +378,12 @@ app.get('/api/activos/export', async (req, res) => {
 
         const csvContent = [header, ...csvRows].join('\n');
 
-        res.setHeader('Content-Type', 'text/csv');
+        res.setHeader('Content-Type', 'text/csv; charset=utf-8');
         res.setHeader('Content-Disposition', 'attachment; filename=activos_inventario.csv');
+        console.log(`   ✅ Export content generated successfully (${csvContent.length} bytes)`);
         res.status(200).send(csvContent);
     } catch (err) {
-        console.error('Error al exportar activos:', err);
+        console.error('❌ Error al exportar activos:', err);
         res.status(500).json({ success: false, error: err.message });
     }
 });
