@@ -338,6 +338,49 @@ app.post('/api/activos/import', upload.single('file'), async (req, res) => {
                 if (fs.existsSync(req.file.path)) fs.unlinkSync(req.file.path);
             }
         });
+
+    // ==================== EXPORTACIÓN DE ACTIVOS (CSV) ====================
+
+    app.get('/api/activos/export', async (req, res) => {
+        try {
+            const result = await query('SELECT * FROM activos WHERE deleted = 0 ORDER BY id ASC');
+            const rows = result.rows;
+
+            if (rows.length === 0) {
+                return res.status(404).json({ success: false, error: 'No hay activos para exportar' });
+            }
+
+            // Define columns
+            const columns = ['codigo', 'nombre', 'serie', 'edificio', 'nivel', 'categoria', 'espacio', 'sync_id', 'updated_at'];
+
+            // Helper to escape CSV values
+            const escapeCSV = (val) => {
+                if (val === null || val === undefined) return '';
+                const str = String(val);
+                if (str.includes(',') || str.includes('"') || str.includes('\n')) {
+                    return `"${str.replace(/"/g, '""')}"`;
+                }
+                return str;
+            };
+
+            // Header row
+            const header = columns.join(',');
+
+            // Data rows
+            const csvRows = rows.map(row => {
+                return columns.map(col => escapeCSV(row[col])).join(',');
+            });
+
+            const csvContent = [header, ...csvRows].join('\n');
+
+            res.setHeader('Content-Type', 'text/csv');
+            res.setHeader('Content-Disposition', 'attachment; filename=activos_inventario.csv');
+            res.status(200).send(csvContent);
+        } catch (err) {
+            console.error('Error al exportar activos:', err);
+            res.status(500).json({ success: false, error: err.message });
+        }
+    });
 });
 
 app.post('/api/activos/sync', async (req, res) => {
