@@ -1,6 +1,7 @@
-FROM node:20-slim
+# Use official Node.js image (match server/Dockerfile)
+FROM node:18-slim
 
-# Instalar dependencias del sistema para Tesseract y OCR
+# Install system dependencies for Tesseract
 RUN apt-get update && apt-get install -y \
     tesseract-ocr \
     libtesseract-dev \
@@ -8,17 +9,17 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /usr/src/app
 
-# Copiar archivos de dependencias
+# Copy package files from server folder
 COPY server/package*.json ./
 
-# Instalar dependencias de Node
-RUN npm install
+# Install dependencies
+RUN npm install --production
 
-# Copiar el resto del código
+# Copy server source code only
 COPY server/ .
 
-# Exponer el puerto
+# Expose port
 EXPOSE 3001
 
-# Comando para iniciar
+# Start the server
 CMD [ "node", "server.js" ]

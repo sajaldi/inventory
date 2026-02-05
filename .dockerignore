@@ -1,9 +1,25 @@
+# Common
 node_modules
-npm-debug.log
-.env
 .git
-.gitignore
+.env
 *.db
 logs
-public/uploads/*
-!public/uploads/.gitkeep
+
+# Mobile App files (Ignore these to speed up server deployment)
+android/
+ios/
+app/
+assets/
+components/
+hooks/
+constants/
+utils/
+node_modules/
+.expo/
+build/
+
+# Docker specific
+Dockerfile
+.dockerignore
+!server/Dockerfile
+!server/.dockerignore
