@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualización de Activos</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --background: #f8fafc;
+            --text: #1e293b;
+            --card: #ffffff;
+            --border: #e2e8f0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            margin: 0;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: var(--primary);
+            margin-bottom: 2rem;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            background: var(--card);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th,
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background-color: #f1f5f9;
+            font-weight: 600;
+            color: #475569;
+        }
+
+        tr:hover {
+            background-color: #f8fafc;
+        }
+
+        .loading {
+            padding: 2rem;
+            text-align: center;
+            font-style: italic;
+            color: #64748b;
+        }
+
+        .error {
+            color: #ef4444;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+            gap: 1rem;
+            background: #f8fafc;
+            border-top: 1px solid var(--border);
+        }
+
+        .pagination button {
+            padding: 0.5rem 1rem;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .pagination button:disabled {
+            background-color: #cbd5e1;
+            cursor: not-allowed;
+        }
+
+        .pagination #pageInfo {
+            font-weight: 500;
+            color: #475569;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Panel de Activos</h1>
+    <div class="container">
+        <table id="activosTable">
+            <thead>
+                <tr id="tableHeader">
+                    <!-- Headers will be generated dynamically -->
+                    <th class="loading">Cargando activos...</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                <!-- Data will be inserted here -->
+            </tbody>
+        </table>
+        <div class="pagination">
+            <button id="prevBtn" onclick="changePage(-1)">Anterior</button>
+            <span id="pageInfo">Página 1</span>
+            <button id="nextBtn" onclick="changePage(1)">Siguiente</button>
+        </div>
+    </div>
+
+    <script>
+        let currentPage = 1;
+        const limit = 50;
+        let totalPages = 1;
+
+        async function fetchActivos(page = 1) {
+            try {
+                const response = await fetch(`/activos?page=${page}&limit=${limit}`);
+                const contentType = response.headers.get("content-type");
+
+                let responseData;
+                if (contentType && contentType.includes("application/json")) {
+                    responseData = await response.json();
+                } else {
+                    const text = await response.text();
+                    console.error('Expected JSON but received:', text);
+                    const snippet = text.trim() ? text.substring(0, 200) : "[Cuerpo vacío]";
+                    throw new Error(`El servidor respondió con HTML/Texto (ver consola): ${snippet}`);
+                }
+
+                if (!response.ok) {
+                    throw new Error(responseData.error || 'Error al obtener datos');
+                }
+
+                const { data, meta } = responseData;
+                const tableBody = document.getElementById('tableBody');
+                const tableHeader = document.getElementById('tableHeader');
+
+                currentPage = meta.currentPage;
+                totalPages = meta.totalPages;
+                document.getElementById('pageInfo').innerText = `Página ${currentPage} de ${totalPages} (${meta.totalItems} registros)`;
+                document.getElementById('prevBtn').disabled = currentPage <= 1;
+                document.getElementById('nextBtn').disabled = currentPage >= totalPages;
+
+                if (data.length === 0) {
+                    tableBody.innerHTML = '<tr><td colspan="100%" class="loading">No se encontraron activos.</td></tr>';
+                    return;
+                }
+
+                // Generate headers based on keys of the first object
+                const keys = Object.keys(data[0]);
+                tableHeader.innerHTML = keys.map(key => `<th>${key.toUpperCase()}</th>`).join('');
+
+                // Generate rows
+                tableBody.innerHTML = data.map(item => `
+                    <tr>
+                        ${keys.map(key => `<td>${item[key] !== null ? item[key] : '-'}</td>`).join('')}
+                    </tr>
+                `).join('');
+
+            } catch (error) {
+                console.error(error);
+                document.getElementById('tableHeader').innerHTML = '<th class="error">Error de conexión</th>';
+                document.getElementById('tableBody').innerHTML = `<tr><td class="error">${error.message}</td></tr>`;
+            }
+        }
+
+        function changePage(delta) {
+            const newPage = currentPage + delta;
+            if (newPage >= 1 && newPage <= totalPages) {
+                fetchActivos(newPage);
+            }
+        }
+
+        fetchActivos();
+    </script>
+</body>
+
+</html>
