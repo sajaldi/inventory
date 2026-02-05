@@ -95,14 +95,24 @@ const initDB = async () => {
         await query(`CREATE INDEX IF NOT EXISTS idx_categorias_sync_id ON categorias(sync_id)`);
         await query(`CREATE INDEX IF NOT EXISTS idx_categorias_updated_at ON categorias(updated_at)`);
 
-        // Migration: Ensure 'serie' column exists (for older DB versions)
-        try {
-            await query(`ALTER TABLE activos ADD COLUMN IF NOT EXISTS serie TEXT`);
-        } catch (e) {
-            console.log('Note: serie column might already exist or postgres version is old');
+        // Migration: Ensure all columns exist (for older DB versions)
+        const migrations = [
+            { table: 'activos', column: 'deleted', type: 'INTEGER DEFAULT 0' },
+            { table: 'activos', column: 'serie', type: 'TEXT' },
+            { table: 'activos', column: 'updated_at', type: 'TIMESTAMP DEFAULT CURRENT_TIMESTAMP' },
+            { table: 'categorias', column: 'deleted', type: 'INTEGER DEFAULT 0' },
+            { table: 'auditorias', column: 'plano_id', type: 'INTEGER' }
+        ];
+
+        for (const m of migrations) {
+            try {
+                await query(`ALTER TABLE ${m.table} ADD COLUMN IF NOT EXISTS ${m.column} ${m.type}`);
+            } catch (e) {
+                // Silently ignore if already exists or other minor issue
+            }
         }
 
-        console.log('✅ Tablas inicializadas en PostgreSQL');
+        console.log('✅ Tablas inicializadas y migradas en PostgreSQL');
     } catch (error) {
         console.error('Error inicializando BD:', error);
     }
