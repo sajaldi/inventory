@@ -1,46 +1,37 @@
 const express = require('express');
 const cors = require('cors');
-const { Pool } = require('pg');
 const { v4: uuidv4 } = require('uuid');
 const path = require('path');
 const Tesseract = require('tesseract.js');
 const fs = require('fs');
+const db = require('./db');
 require('dotenv').config();
 
 const app = express();
 app.use(cors());
 app.use(express.json({ limit: '50mb' }));
+app.use(express.urlencoded({ limit: '50mb', extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Configuración de PostgreSQL usando variables de entorno
-console.log('🔌 Intentando conectar a PostgreSQL en:', process.env.DB_HOST || 'localhost');
-const pool = new Pool({
-    user: process.env.DB_USER || 'postgres',
-    host: process.env.DB_HOST || 'localhost',
-    database: process.env.DB_NAME || 'db',
-    password: process.env.DB_PASSWORD || 'PasswordRoot07',
-    port: process.env.DB_PORT || 5432
+// Log all requests
+app.use((req, res, next) => {
+    console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
+    next();
 });
 
-// Test de conexión
-pool.connect((err, client, release) => {
-    if (err) {
-        return console.error('Error adquiriendo cliente de BD:', err.stack);
-    }
-    client.query('SELECT NOW()', (err, result) => {
-        release();
-        if (err) {
-            return console.error('Error ejecutando query de prueba:', err.stack);
-        }
-        console.log('✅ Conectado a PostgreSQL:', result.rows[0]);
-        initDB();
-    });
+// Health check for Coolify
+app.get('/health', (req, res) => {
+    res.status(200).send('OK');
+});
+
+// Explicitly serve index.html for the root route
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 // Helper para queries simples (no transaccionales)
 async function query(text, params) {
-    const res = await pool.query(text, params);
-    return res;
+    return await db.query(text, params);
 }
 
 // Inicializar tablas en PostgreSQL
@@ -57,7 +48,8 @@ const initDB = async () => {
                 categoria TEXT,
                 espacio TEXT,
                 updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                deleted INTEGER DEFAULT 0
+                deleted INTEGER DEFAULT 0,
+                serie TEXT
             )
         `);
 
@@ -81,7 +73,6 @@ const initDB = async () => {
             )
         `);
 
-        // Tabla de Categorías
         await query(`
             CREATE TABLE IF NOT EXISTS categorias (
                 id SERIAL PRIMARY KEY,
@@ -104,11 +95,60 @@ const initDB = async () => {
         await query(`CREATE INDEX IF NOT EXISTS idx_categorias_sync_id ON categorias(sync_id)`);
         await query(`CREATE INDEX IF NOT EXISTS idx_categorias_updated_at ON categorias(updated_at)`);
 
-        console.log('✅ Tablas inicializadas en PostgreSQL');
+        // Migration: Ensure all columns exist (for older DB versions)
+        const migrations = [
+            { table: 'activos', column: 'deleted', type: 'INTEGER DEFAULT 0' },
+            { table: 'activos', column: 'serie', type: 'TEXT' },
+            { table: 'activos', column: 'updated_at', type: 'TIMESTAMP DEFAULT CURRENT_TIMESTAMP' },
+            { table: 'categorias', column: 'deleted', type: 'INTEGER DEFAULT 0' },
+            { table: 'auditorias', column: 'plano_id', type: 'INTEGER' }
+        ];
+
+        for (const m of migrations) {
+            try {
+                await query(`ALTER TABLE ${m.table} ADD COLUMN IF NOT EXISTS ${m.column} ${m.type}`);
+            } catch (e) {
+                // Silently ignore if already exists or other minor issue
+            }
+        }
+
+        console.log('✅ Tablas inicializadas y migradas en PostgreSQL');
     } catch (error) {
         console.error('Error inicializando BD:', error);
     }
 };
+
+// ==================== FRONTEND ENDPOINTS ====================
+
+// Endpoint to get all assets (activos) with pagination for the Web Panel
+app.get('/activos', async (req, res) => {
+    try {
+        const page = parseInt(req.query.page) || 1;
+        const limit = parseInt(req.query.limit) || 50;
+        const offset = (page - 1) * limit;
+
+        // Get total count for pagination metadata
+        const countResult = await query('SELECT COUNT(*) FROM activos WHERE deleted = 0');
+        const totalItems = parseInt(countResult.rows[0].count);
+        const totalPages = Math.ceil(totalItems / limit);
+
+        // Get paginated data
+        const result = await query('SELECT * FROM activos WHERE deleted = 0 ORDER BY id LIMIT $1 OFFSET $2', [limit, offset]);
+
+        res.json({
+            data: result.rows,
+            meta: {
+                totalItems,
+                totalPages,
+                currentPage: page,
+                limit
+            }
+        });
+    } catch (err) {
+        console.error('DATABASE ERROR:', err);
+        res.status(500).json({ error: err.message });
+    }
+});
 
 // ==================== SINCRONIZACIÓN DE CATEGORÍAS ====================
 
@@ -139,7 +179,7 @@ app.post('/api/categorias/sync', async (req, res) => {
     }
 
     const results = { inserted: 0, updated: 0 };
-    const client = await pool.connect();
+    const client = await db.pool.connect();
 
     try {
         await client.query('BEGIN');
@@ -185,6 +225,11 @@ app.post('/api/categorias/sync', async (req, res) => {
 });
 
 // Health check
+app.get('/api', (req, res) => {
+    res.json({ status: 'ok', message: 'Inventory API logic is running' });
+});
+
+// Health check with timestamp
 app.get('/api/health', (req, res) => {
     res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
@@ -215,7 +260,7 @@ app.get('/api/activos', async (req, res) => {
             serverTime: new Date().toISOString()
         });
     } catch (error) {
-        console.error(`❌ Error obteniendo activos (Host: ${process.env.DB_HOST || 'localhost'}):`, error.message);
+        console.error(`❌ Error obteniendo activos:`, error.message);
         res.status(500).json({ success: false, error: error.message });
     }
 });
@@ -229,25 +274,13 @@ app.post('/api/activos/sync', async (req, res) => {
     }
 
     const results = { inserted: 0, updated: 0, conflicts: [], errors: [] };
-
-    // Usar un cliente dedicado para transacción
-    const client = await pool.connect();
+    const client = await db.pool.connect();
 
     try {
         await client.query('BEGIN');
 
-        // Añadir columna serie si no existe (Migración manual simple)
-        try {
-            await query(`ALTER TABLE activos ADD COLUMN IF NOT EXISTS serie TEXT`);
-        } catch (e) {
-            // Ignorar si ya existe o error menor en postgres antiguo
-        }
-
         for (const activo of activos) {
             const { sync_id, codigo, nombre, edificio, nivel, categoria, espacio, updated_at, serie } = activo;
-
-            // Log individual asset processing
-            // console.log(`Processing asset: ${codigo} (${sync_id}) - Client Date: ${updated_at}`);
 
             const resExisting = await client.query('SELECT * FROM activos WHERE sync_id = $1', [sync_id]);
             const existing = resExisting.rows[0];
@@ -261,20 +294,6 @@ app.post('/api/activos/sync', async (req, res) => {
                 results.inserted++;
                 console.log(`   -> Inserted new asset: ${codigo}`);
             } else {
-                // Comparación de fechas robusta
-                const serverDateStr = existing.updated_at instanceof Date ? existing.updated_at.toISOString() : existing.updated_at;
-                const clientDateStr = updated_at;
-
-                const serverTime = new Date(serverDateStr).getTime();
-                const clientTime = new Date(clientDateStr).getTime();
-
-                // Debug date comparison logic
-                // console.log(`   Comparing: Client(${clientTime}) vs Server(${serverTime}) -> Diff: ${clientTime - serverTime}ms`);
-
-                // Permitimos la actualización si la versión del cliente es más nueva O IGUAL (para asegurar convergencia)
-                // O si la diferencia es mínima (mismo segundo)
-                // Prioridad Cliente: Siempre actualizamos si el cliente envía datos (confía en el flag 'modificado' de la app)
-                // if (clientTime >= serverTime) {
                 await client.query(
                     `UPDATE activos SET
                          codigo = $1, nombre = $2, edificio = $3, nivel = $4, 
@@ -283,16 +302,11 @@ app.post('/api/activos/sync', async (req, res) => {
                     [codigo, nombre, edificio || null, nivel || null, categoria || null, espacio || null, updated_at, sync_id, serie || null]
                 );
                 results.updated++;
-                console.log(`   -> Updated asset (Client Priority): ${codigo}`);
-                // } else {
-                //    console.log(`   -> Ignored update for ${codigo}. Server is newer/same. S: ${serverDateStr} C: ${clientDateStr}`);
-                //    results.conflicts.push({ sync_id, reason: 'Server version is newer' });
-                // }
+                console.log(`   -> Updated asset: ${codigo}`);
             }
         }
 
         await client.query('COMMIT');
-        console.log(`Sync completed. Inserted: ${results.inserted}, Updated: ${results.updated}, Conflicts: ${results.conflicts.length}`);
         res.json({ success: true, results });
     } catch (error) {
         await client.query('ROLLBACK');
@@ -304,7 +318,7 @@ app.post('/api/activos/sync', async (req, res) => {
 });
 
 app.delete('/api/activos/:syncId', async (req, res) => {
-    const client = await pool.connect();
+    const client = await db.pool.connect();
     try {
         const { syncId } = req.params;
         await client.query(
@@ -347,7 +361,7 @@ app.post('/api/auditorias/sync', async (req, res) => {
     }
 
     const results = { inserted: 0, updated: 0 };
-    const client = await pool.connect();
+    const client = await db.pool.connect();
 
     try {
         await client.query('BEGIN');
@@ -412,18 +426,15 @@ app.post('/api/ocr', async (req, res) => {
             return res.status(400).json({ success: false, error: 'No image provided' });
         }
 
-        // Add prefix if missing
         const base64Image = image.startsWith('data:') ? image : `data:image/jpeg;base64,${image}`;
-
         console.log('Enviando imagen a OCR.space...');
 
-        // Construct x-www-form-urlencoded body manually to avoid needing 'form-data' package
         const params = new URLSearchParams();
-        params.append('apikey', 'K84898840688957');
+        params.append('apikey', process.env.OCR_API_KEY || 'K84898840688957');
         params.append('base64Image', base64Image);
-        params.append('language', 'eng'); // or 'spa' if needed, user didn't specify but 'eng' is safer for serial numbers usually
+        params.append('language', 'eng');
         params.append('isOverlayRequired', 'false');
-        params.append('scale', 'true'); // Improves OCR for low res
+        params.append('scale', 'true');
 
         const response = await fetch('https://api.ocr.space/parse/image', {
             method: 'POST',
@@ -469,7 +480,8 @@ app.get('/api/stats', async (req, res) => {
 });
 
 const PORT = process.env.PORT || 3001;
-app.listen(PORT, '0.0.0.0', () => {
+app.listen(PORT, '0.0.0.0', async () => {
     console.log(`🚀 Servidor de sincronización corriendo en puerto ${PORT} (PostgreSQL)`);
-    console.log(`📡 API disponible en http://localhost:${PORT}/api`);
+    console.log(`📡 API disponible en http://0.0.0.0:${PORT}/api`);
+    await initDB();
 });
