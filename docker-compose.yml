@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "${PORT:-3001}:${PORT:-3001}"
+    environment:
+      - PORT=${PORT:-3001}
+      - DB_USER=${DB_USER:-postgres}
+      - DB_HOST=${DB_HOST:-postgres}
+      - DB_NAME=${DB_NAME:-db}
+      - DB_PASSWORD=${DB_PASSWORD:-PasswordRoot07}
+      - DB_PORT=${DB_PORT:-5432}
+      - OCR_API_KEY=${OCR_API_KEY}
+    depends_on:
+      - postgres
+    networks:
+      - inventory-network
+
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      - POSTGRES_USER=${DB_USER:-postgres}
+      - POSTGRES_PASSWORD=${DB_PASSWORD:-PasswordRoot07}
+      - POSTGRES_DB=${DB_NAME:-db}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - inventory-network
+
+networks:
+  inventory-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
